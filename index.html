@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es_ES">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermezzo</title>
+
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Start of first page -->
+    <div data-role="page" id="mainn" data-position="fixed">
+        <div data-role="content" id="ctn">
+           <div class="container">
+                <div class="portada">
+                    <input type="text" class="txt" placeholder="Email">
+                    <input type="password" class="txt" placeholder="Password">
+                    <a class="btn btn-verde btn-big" href="#avisos">Acceder</a>
+                </div>
+            </div>
+        </div>
+        <!-- /content -->
+
+    </div>
+    <!-- /page -->
+
+    <!-- Start of second page -->
+    <div data-role="page" id="avisos">
+
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="container">
+               <div class="aviso__wrapper">
+                <div class="aviso__item">
+                    <h2>Aviso</h2>
+                    <p>Maecenas laoreet nibh pharetra pharetra molestie. Nunc ac elit vitae odio consectetur finibus eget id mauris. Ut vel pellentesque diam, ut luctus risus. Suspendisse eros lorem, tempor non ipsum at, laoreet tempus ligula. Mauris dui libero, porta vel tempor et, sollicitudin et orci. Aenean pretium sit amet turpis vitae aliquet. </p>
+                    <p class="align-right">
+                        <a href="#" class="btn btn-verde btn-small">Ok</a>
+                    </p>
+                </div><!--aviso__item-->
+                
+                <div class="aviso__item">
+                    <h2>Aviso</h2>
+                    <p>Curabitur volutpat odio a augue tincidunt eleifend. Aliquam malesuada purus efficitur metus semper laoreet. Ut rutrum nulla urna, id lobortis velit imperdiet at. Curabitur ornare iaculis luctus.  </p>
+                    <p class="align-right">
+                        <a href="#" class="btn btn-verde btn-small">Ok</a>
+                    </p>
+                </div><!--aviso__item-->
+                <p class="align-center">
+                    <a href="#conciertos" class="btn btn-verde btn-big">Ver conciertos</a>
+                </p>
+                </div><!--aviso__wrapper-->
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    
+    <!-- Start of third page -->
+    <div data-role="page" id="conciertos">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    
+    <!-- Start of Fourth page -->
+    <div data-role="page" id="boheme">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+                <p>In hac habitasse platea dictumst. Nunc id augue bibendum erat aliquet imperdiet. In ligula leo, convallis vel egestas et, blandit eget sapien. Curabitur a consectetur urna, et dapibus turpis. Donec ligula turpis, viverra sit amet ultrices ut, feugiat eu ante. Cras a ipsum vel odio euismod malesuada. </p>
+                <p>
+                    <span>Fecha inicio: </span>23/06/18
+                    <br>
+                    <span>Fecha fin: </span>30/06/18
+                </p>
+                <p>
+                    <span>Compositor: </span>Fulano de tal
+                </p>
+                <p>Vestibulum efficitur tellus cursus, fermentum diam in, elementum orci. Nulla posuere nisi eu urna porttitor, consectetur pharetra felis viverra. Fusce ac iaculis eros. </p>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /page -->
+    
+    
+    <!-- Start of Planning -->
+    <div data-role="page" id="planning">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+               <h2>Planning</h2>
+                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /planning -->
+    
+    
+    <!-- Start of Libreto -->
+    <div data-role="page" id="libreto">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+               <h2>Libreto</h2>
+                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /libreto -->
+    
+    
+    <!-- Start of partitura -->
+    <div data-role="page" id="partitura">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+               <h2>Partitura</h2>
+                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
+                <p>
+                    <a href="#" class="btn btn-verde btn-big">Descargar</a>
+                </p>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /libreto -->
+    
+    
+    
+    <!-- Start of audios -->
+    <div data-role="page" id="audios">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+                <ul class="audios">
+                    <li>
+                        <a href="#">Che gelida manina</a>
+                    </li>
+                    <li>
+                        <a href="#">O soave fanciulla</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /audios -->
+    
+    
+    <!-- Start of eventos -->
+    <div data-role="page" id="eventos">
+        <div data-role="header">
+            <h1>Fernando</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+           <div class="eventos__wrap"> 
+               <a class="eventos__link active" href="#boheme">La Boheme</a>
+               <a class="eventos__link" href="#">La Flauta Mágica</a>
+            </div>
+            <div class="container">
+                <p>
+                    <strong>Miercoles 25/06/18 a las 17:30h</strong>
+                    <br>
+                    Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.
+                </p>
+                <p>
+                    <strong>Lunes 22/06/18 a las 18:30h</strong>
+                    <br>
+                    Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.
+                </p>
+            </div>
+        </div>
+        <!-- /content -->
+
+        <div data-role="footer" data-position="fixed" >
+           <div class="container">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <a href="#planning">
+                        planning
+                        <img src="css/img/icon-planning.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#libreto">
+                        libreto
+                        <img src="css/img/icon-libreto.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#partitura">
+                        partitura
+                        <img src="css/img/icon-partitura.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#boheme">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#audios">
+                        audios
+                        <img src="css/img/icon-audios.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a href="#eventos">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+            </div>
+            </div>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /eventos -->
+    
+    
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,221 @@
+html, body {
+    height : 100%;
+}
+body {
+    margin-bottom: 40px;
+}
+a {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+#mainn {
+    height : calc(100% - 40px;);
+}
+#mainn .ui-header {
+    height : 40px;
+}
+#ctn {
+    height : 100%;
+ }
+
+
+.ui-footer {
+    position: absolute;
+    height: 40px;
+    bottom: 0px;
+    width: 100%;
+}
+.ui-content {
+    padding: 0px;
+}
+.ui-overlay-a, .ui-page-theme-a {
+    background-color: #FFF;
+}
+
+/*******************************
+  Header
+*******************************/
+.ui-page-theme-a .ui-bar-inherit {
+    background-color: #59b062;
+    text-shadow: none;
+    border-bottom: 3px solid #000;
+    color:#000;
+}
+
+
+/*******************************
+  Avisos
+*******************************/
+#avisos {
+    background-color: #dcdbdb;
+}
+.aviso__item {
+    background-color: #FFF;
+    border:1px solid #949595;
+    padding: 12px 20px;
+    margin-bottom: 35px;
+    border-radius: 10px;
+}
+.aviso__item h2{
+    text-align: center;
+    color:#868383;
+    font-size: 20px;
+    margin: 0px;
+    padding-top: 5px; 
+    padding-bottom: 10px;
+    background-image: url(img/icon-alert.png);
+    background-repeat: no-repeat;
+    background-size: 40px 34px;
+}
+.aviso__item p{ margin-top: 0px; }    
+.aviso__wrapper {
+    padding-top: 30px;
+}
+
+/*******************************
+  Eventos
+*******************************/
+#conciertos  {
+    background-image: url(img/lagartija.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+a.eventos__link, a.eventos__link:focus, a.eventos__link:visited {
+    background-color: #b2b2b2;
+    color:#FFF;
+    display: block;
+    padding: 12px;
+    padding-left: 38px;
+    margin-bottom: 1px;
+    position: relative;
+}
+a.eventos__link:hover {  color:#FFF; background-color: #404040; }
+
+#eventos strong{
+    color:#59b062;
+}
+
+
+/*******************************
+  Boheme
+*******************************/
+#boheme  span{
+    color: #59b062;
+}
+a.eventos__link.active {
+    background-color: #404040;
+}
+a.eventos__link.active:before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #a5060a;
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    left: 15px;
+    top: 17px;
+}
+.item {
+    background-color: #000; text-align: center;
+}
+    .item a{ color:#FFF; font-size: 12px; font-weight: 400; }
+    .item a img{ display: block; height: 35px; width: 43px !important; margin: auto; }
+
+.owl-prev, .owl-next { width: 20px; height: 38px; position: absolute; overflow: hidden; top:10px; background-repeat: no-repeat; text-indent: -999px; }
+.owl-prev { left: -20px; background-image: url(img/icon-prev.png); }
+.owl-next { right: -20px; background-image: url(img/icon-next.png); }
+
+/********************************
+  Login
+********************************/
+.container {
+    max-width: 360px;
+    margin: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.container span{
+    color:#59b062;
+}
+.portada {
+    background-image: url(img/portada.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding-top: 160px;
+    padding-left: 45px;
+    padding-right: 45px;
+    text-align: center;
+    min-height: 560px;
+}
+
+/******************************
+  Audios
+*****************************/
+ul.audios {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+    ul.audios li{
+        border-bottom: 2px solid #59b062;  
+        padding: 15px 0px;
+        padding-left: 50px;
+        background-repeat: no-repeat;
+        background-image: url(img/icon-play.png);
+        background-position: 0px 5px;
+    }
+    ul.audios li a{
+        color: #59b062; 
+        font-weight: 400;ç
+        font-size: 18px;
+    }
+
+
+/*******************************
+  Formulario
+*******************************/
+.ui-input-text input.txt {
+    border: 3px solid #000;
+    border-radius: 0px;
+}
+
+/******************************
+  Footer
+*******************************/
+.ui-bar-inherit.ui-footer {
+    background-color: #000;
+    color:#FFF;
+    height: auto;
+}
+
+/******************************
+  Botones
+*******************************/
+.btn {
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: inline-block;
+}
+.ui-page-theme-a a.btn-verde {
+    background-color: #59b062;
+    color:#000;
+    text-align: center;
+    text-shadow: none;
+}
+.btn-big {
+    padding: 10px 20px;
+    min-width: 135px;
+    font-size: 22px;
+}
+.btn-small {
+    padding: 3px 10px;
+    min-width: 85px;
+    font-size: 18px;
+}
+
+
+.align-right { text-align: right; }
+.align-center { text-align: center; }
+.align-left { text-align: left; }
