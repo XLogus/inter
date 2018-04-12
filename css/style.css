@@ -161,10 +161,7 @@ ul.audios {
     ul.audios li{
         border-bottom: 2px solid #59b062;  
         padding: 15px 0px;
-        padding-left: 50px;
-        background-repeat: no-repeat;
-        background-image: url(img/icon-play.png);
-        background-position: 0px 5px;
+        text-align: center;
     }
     ul.audios li a{
         color: #59b062; 
