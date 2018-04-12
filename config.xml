@@ -61,7 +61,7 @@ Miguel Manchego
 		<feature name="http://api.phonegap.com/1.0/geolocation"/>
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>		
-		<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+		<gap:plugin name="org.apache.cordova.statusbar" />
 		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 		<gap:plugin name="org.apache.cordova.device"  />
 		<gap:plugin name="org.apache.cordova.dialogs"  />
