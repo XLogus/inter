@@ -60,12 +60,12 @@ Miguel Manchego
 		<gap:platform name="android" />
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>		
-		<gap:plugin name="cordova-plugin-statusbar" />
-		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
-		<gap:plugin name="cordova-plugin-device"  />
-		<gap:plugin name="cordova-plugin-dialogs"  />
-		<gap:plugin name="cordova-plugin-splashscreen"  />
-		<gap:plugin name="cordova-plugin-vibration"  />
+		<plugin name="cordova-plugin-statusbar" />
+		<plugin name="cordova-plugin-whitelist" source="npm" />
+		<plugin name="cordova-plugin-device"  />
+		<plugin name="cordova-plugin-dialogs"  />
+		<plugin name="cordova-plugin-splashscreen"  />
+		<plugin name="cordova-plugin-vibration"  />
 		<icon src="icono57x57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="icono72x72.png" gap:platform="ios" width="72" height="72" />
 		<icon src="icono114x114.png" gap:platform="ios" width="114" height="114" />
