@@ -1,15 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
+		<?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
+		xmlns:android = "http://schemas.android.com/apk/res/android"
 		id        = "com.miguel.intermezzo"
 		versionCode=""
-		version   = "1.8">
-		<name>Intermezzo</name>
-		<description>
-		</description>
-		<author href="miguelmanchego.com" email="info@miguelmanchego.com">
-Miguel Manchego
-		</author>
+		version   = "1.0">
+		<name>Intermezzo		</name>
+		<description>		</description>
+		<author href="miguelmanchego.com" email="info@miguelmanchego.com">Miguel Manchego		</author>
+		<feature name="http://api.phonegap.com/1.0/battery" />
+		<feature name="http://api.phonegap.com/1.0/camera" />
+		<feature name="http://api.phonegap.com/1.0/contacts" />
+		<feature name="http://api.phonegap.com/1.0/file" />
+		<feature name="http://api.phonegap.com/1.0/geolocation" />
+		<feature name="http://api.phonegap.com/1.0/media" />
+		<feature name="http://api.phonegap.com/1.0/network" />
+		<feature name="http://api.phonegap.com/1.0/notification" />
+		<plugin name="cordova-plugin-device"  />
+		<plugin name="cordova-plugin-dialogs"  />
+		<plugin name="cordova-plugin-geolocation"  />
+		<plugin name="cordova-plugin-splashscreen"  />
+		<plugin name="cordova-plugin-vibration"  />
+		<plugin name="undefined" version="" source="npm"  />
+		<plugin name="undefined" version="" source="npm"  />
+		<preference name="phonegap-version" value="cli-6.3.0" />
+		<preference name="android-build-tool" value="gradle" />
+		<preference name="orientation" value="default" />
+		<preference name="fullscreen" value="false" />
+		<preference name="target-device" value="universal" />
+		<preference name="webviewbounce" value="true" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="ios-statusbarstyle" value="default" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="true" />
+		<preference name="show-splash-screen-spinner" value="true" />
+		<preference name="auto-hide-splash-screen" value="true" />
+		<preference name="FadeSplashScreen " value="true" />
+		<preference name="EnableViewportScale" value="true" />
+		<preference name="MediaPlaybackRequiresUserAction" value="true" />
+		<preference name="AllowInlineMediaPlayback" value="true" />
+		<preference name="BackupWebStorage" value="cloud" />
+		<preference name="TopActivityIndicator" value="gray" />
+		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
+		<preference name="KeyboardShrinksView " value="true" />
+		<preference name="HideKeyboardFormAccessoryBar" value="true" />
+		<preference name="SuppressesIncrementalRendering" value="true" />
+		<preference name="windows-identity-name" value="" />
+		<preference name="android-minSdkVersion" value="11" />
+		<preference name="android-installLocation" value="auto" />
+		<preference name="SplashScreenDelay" value="2000" />
+		<preference name="ErrorUrl" value="" />
+		<preference name="BackgroundColor" value="0x000000" />
+		<preference name="DisallowOverscroll" value="true" />
+		<preference name="LoadingDialog" value="," />
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<platform name="ios">
+		<icon src="icono57x57.png" width="57" height="57" />
+		<icon src="icono114x114.png" width="144" height="144" />
+		<icon src="icono72x72.png" width="72" height="72" />
+		<icon src="icono114x114.png" width="114" height="114" />
+		<icon src="intermezzoapp\icono120x120.png" width="120" height="120" />
+		<icon src="intermezzoapp\icono76x76.png" width="76" height="76" />
+		<icon src="intermezzoapp\icono152x152.png" width="152" height="152" />
+		<splash src="Default-568h@2x.png" width="640" height="1136" /> 
+		<splash src="Default@2x.png" width="640" height="960" /> 
+		<splash src="Default.png" width="320" height="480" /> 
+		</platform>
+		<platform name="android">
+		<icon src="intermezzoapp\icono36x36.png" qualifier="ldpi" />
+		<icon src="intermezzoapp\icono48x48.png" qualifier="mdpi" />
+		<icon src="intermezzoapp\icono72x72.png" qualifier="hdpi" />
+		<icon src="intermezzoapp\icono96x96.png" qualifier="xhdpi" />
+		<icon src="intermezzoapp\icono-144x144.png" qualifier="xxhdpi" />
+		<icon src="intermezzoapp\icono192x192.png" qualifier="xxxhdpi" />
+		<splash src="phonegap/Default.png" qualifier="mdpi" />
+		<splash src="phonegap/splash480x800.png" qualifier="hdpi" />
+		<splash src="phonegap/splash720x960.png" qualifier="xhdpi" />
+		<splash src="phonegap/splash1080x1920.png" qualifier="xxhdpi" />
+		</platform>
+		<platform name="winphone">
+		</platform>
+		 <icon src="icon.png" />
+		<access origin="*" />
 		<access origin="*" />
 		<allow-intent href="http://*/*" />
 		<allow-intent href="https://*/*" />
@@ -17,76 +90,4 @@ Miguel Manchego
 		<allow-intent href="sms:*" />
 		<allow-intent href="mailto:*" />
 		<allow-intent href="geo:*" />
-		<preference name="phonegap-version" value="cli-5.2.0" />
-		<preference name="orientation" value="portrait" />
-		<preference name="fullscreen" value="false" />
-		<preference name="target-device" value="universal" />
-		<preference name="webviewbounce" value="true" />
-		<preference name="prerendered-icon" value="true" />
-		<preference name="stay-in-webview" value="true" />
-		<preference name="ios-statusbarstyle" value="default" />
-		<preference name="StatusBarOverlaysWebView" value="false" /> 
-		<preference name="StatusBarBackgroundColor" value="#000000" />
-		<preference name="StatusBarStyle" value="lightcontent" />
-		<preference name="detect-data-types" value="true" />
-		<preference name="exit-on-suspend" value="true" />
-		<preference name="show-splash-screen-spinner" value="true" />
-		<preference name="auto-hide-splash-screen" value="true" />
-		<preference name="EnableViewportScale" value="true" />
-		<preference name="MediaPlaybackRequiresUserAction" value="true" />
-		<preference name="AllowInlineMediaPlayback" value="true" />
-		<preference name="BackupWebStorage" value="cloud" />
-		<preference name="TopActivityIndicator" value="gray" />
-		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
-		<preference name="HideKeyboardFormAccessoryBar" value="true" />
-		<preference name="SuppressesIncrementalRendering" value="true" />
-		<preference name="android-minSdkVersion" value="7" />
-		<preference name="android-installLocation" value="auto" />
-		<preference name="SplashScreenDelay" value="5000" />
-		<preference name="ErrorUrl" value=""/>
-		<preference name="BackgroundColor" value="0x000000"/>
-		<preference name="KeepRunning" value="true"/>
-		<preference name="DisallowOverscroll" value="true"/>
-		<preference name="LoadingDialog" value=","/> 
-		<preference name="LoadUrlTimeoutValue" value="20000" />
-		<preference name="disable-cursor" value="true" />
-		<gap:platform name="ios" />
-		<feature name="Geolocation">
-			<param name="ios-package" value="CDVLocation" />
-		</feature>
-		<feature name="StatusBar">
-            <param name="ios-package" value="CDVStatusBar" onload="true" />
-        </feature>
-		<gap:platform name="android" />
-		<feature name="http://api.phonegap.com/1.0/geolocation"/>
-		<feature name="http://api.phonegap.com/1.0/network"/>
-		<feature name="http://api.phonegap.com/1.0/notification"/>		
-		<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
-		<gap:plugin name="cordova-plugin-whitelist" source="npm" />
-		<gap:plugin name="org.apache.cordova.device"  />
-		<gap:plugin name="org.apache.cordova.dialogs"  />
-		<gap:plugin name="org.apache.cordova.geolocation"  />
-		<gap:plugin name="org.apache.cordova.splashscreen"  />
-		<gap:plugin name="org.apache.cordova.vibration"  />
-		<icon src="icono57x57.png" gap:platform="ios" width="57" height="57" />
-		<icon src="icono72x72.png" gap:platform="ios" width="72" height="72" />
-		<icon src="icono114x114.png" gap:platform="ios" width="114" height="114" />
-		<icon src="icono114x114.png" gap:platform="ios" width="144" height="144" />
-		<icon src="icono76x76.png" gap:platform="ios" width="76" height="76" />
-		<icon src="icono120x120.png" gap:platform="ios" width="120" height="120" />
-		<icon src="icono152x152.png" gap:platform="ios" width="152" height="152" />
-		<icon src="phonegap/icono36x36.png" gap:platform="android" gap:density="ldpi" />
-		<icon src="phonegap/icono48x48.png" gap:platform="android" gap:density="mdpi" />
-		<icon src="phonegap/icono72x72.png" gap:platform="android" gap:density="hdpi" />
-		<icon src="phonegap/icono96x96.png" gap:platform="android" gap:density="xhdpi" />
-		<icon src="phonegap/icono-144x144.png" gap:platform="android" gap:density="xxhdpi" />
-		<icon src="phonegap/icono192x192.png" gap:platform="android" gap:density="xxxhdpi" />
-		<gap:splash src="Default.png" gap:platform="ios" width="320" height="480" />
-		<gap:splash src="Default@2x.png" gap:platform="ios" width="640" height="960" />
-		<gap:splash src="Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
-		<gap:splash src="phonegap/Default.png" gap:platform="android" gap:density="mdpi" />
-		<gap:splash src="phonegap/splash480x800.png" gap:platform="android" gap:density="hdpi" />
-		<gap:splash src="phonegap/splash720x960.png" gap:platform="android" gap:density="xhdpi" />
-		<gap:splash src="phonegap/splash1080x1920.png" gap:platform="android" gap:density="xxhdpi" />
-		<access origin="*" />
-	</widget>
+		</widget>
