@@ -3,7 +3,7 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.miguel.intermezzo"
 		versionCode=""
-		version   = "1.01">
+		version   = "1.02">
 		<name>Intermezzo</name>
 		<description>Intermezzo for concerts
 		</description>
@@ -40,7 +40,7 @@ Miguel Manchego
 		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
 		<preference name="HideKeyboardFormAccessoryBar" value="true" />
 		<preference name="SuppressesIncrementalRendering" value="true" />
-		<preference name="android-minSdkVersion" value="26" />
+		<preference name="android-minSdkVersion" value="19" />
 		<preference name="android-installLocation" value="auto" />
 		<preference name="SplashScreenDelay" value="5000" />
 		<preference name="ErrorUrl" value=""/>
