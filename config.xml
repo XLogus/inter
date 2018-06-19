@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id        = "com.miguel.intermezzo"
+		id        = "com.areafor.intermezzo"
 		versionCode=""
-		version   = "1.03">
+		version   = "1.04">
 		<name>Intermezzo</name>
 		<description>Intermezzo for concerts
 		</description>
