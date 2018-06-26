@@ -19,6 +19,9 @@ var serviceURL = "http://www.miguelmanchego.com/pages/intermezzo/";
 var produs;
 var curid = 0;
 var contenido;
+var user_id = 0;
+var user_uuid = 0;
+
 
 $(document).bind( "pagebeforechange", function( e, data ) {
     if ( typeof data.toPage === "string" ) {
@@ -27,18 +30,78 @@ $(document).bind( "pagebeforechange", function( e, data ) {
         
         var re1 = /^#conciertos/;
         var re2 = /^#produccion/;
+        var re3 = /^#avisos/;
         
         if ( u.hash.search(re1) !== -1 ) {
             getProducciones();
         } else if( u.hash.search(re2) !== -1 ){            
             getDetalleConcierto(u, params, data.options);            
             e.preventDefault()
+        } else if(u.hash.search(re3) !== -1) {
+            getAvisos();
         } else {
             //e.preventDefault();
         }
     }
 });
 
+$(".aviso__wrapper").on("click", ".js-avisook", function() {
+    //alert("notificado");
+    $user_id = $(this).data("iduser");
+    $aviso_id = $(this).data("idaviso");
+     $.getJSON(serviceURL + 'producciones/notifica/?user_id='+$user_id+'&aviso_id='+$aviso_id).done(function(data) {
+         $(".aviso__item--"+ $aviso_id).remove();
+    });         
+});
+
+$(".js-acceder").on("click", function(event) {
+    event.preventDefault();
+    $username = $(".js-username").val();
+    $password = $(".js-password").val();
+    if($username == "") {
+        $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
+    } else if($password == "") {
+        $(".js-msgerror").html("<p>Por favor ingrese su clave</p>");
+    } else {
+        $(".js-msgerror").html("<p> </p>");
+        /// Verificar logins
+         $.getJSON(serviceURL + 'usuarios/login/', {
+             username:$username,
+             password:$password
+         }).done(function(data) {
+             //console.log("logeandose");
+             datos = jQuery.parseJSON(data);
+             user_id = datos.user_id;
+             user_uuid = device.uuid;
+             console.log("user: "+user_id+" uuid: "+user_uuid);
+             if(user_id == "nay") {
+                 $(".js-msgerror").html("<p>Usuario o clave incorrectos</p>");
+             } else {
+                 $.mobile.changePage("#avisos");
+             }
+        });
+    }
+});
+
+
+function getAvisos() {        
+        $.getJSON(serviceURL + 'producciones/mostraravisos/?user_id='+user_id).done(function(data) {
+            $('.eventos__wrap').html("");    
+            produs = data;
+            $.each(produs, function(index, pela) {
+                
+                rpta = '<div class="aviso__item aviso__item--'+pela.aviso_id+'">';
+                rpta += '<h2>Aviso</h2>';
+                rpta += '<p>'+pela.texto+'</p>';
+                rpta += '<p class="align-right">';
+                rpta += '<a href="#" data-idaviso="'+pela.aviso_id+'" data-iduser="'+user_id+'" class="btn btn-verde btn-small js-avisook">Ok</a>';
+                rpta += '</p>';
+                rpta += '</div>';
+                $(".aviso__wrapper").append(rpta);
+                //$('#carteleraList').listview('refresh');    
+            });
+        });        
+}
 
 function getProducciones() {        
         $.getJSON(serviceURL + 'producciones/mostrar').done(function(data) {

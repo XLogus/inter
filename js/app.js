@@ -35,12 +35,15 @@ var app = {
     onDeviceReady: function() {        
         console.log('Received Device Ready Event');
         console.log('calling setup push');
+        //user_uuid = device.uuid;
+        /*
         var datamobile = 'Device Model: '    + device.model    + '<br />' +
                     'Device Cordova: '  + device.cordova  + '<br />' +
                         'Device Platform: ' + device.platform + '<br />' +
                         'Device UUID: '     + device.uuid     + '<br />' +
                         'Device Version: '  + device.version  + '<br />';
         jQuery("#deviceProperties").html(datamobile);
+        */
         
         //app.setupPush();
     },

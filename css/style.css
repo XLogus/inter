@@ -72,6 +72,7 @@ a {
 .aviso__wrapper {
     padding-top: 30px;
 }
+.js-msgerror { color:#FF0000; }
 
 /*******************************
   Eventos

@@ -18,9 +18,10 @@
         <div data-role="content" id="ctn">
            <div class="container">
                 <div class="portada">
-                    <input type="text" class="txt" placeholder="Email">
-                    <input type="password" class="txt" placeholder="Password">
-                    <a class="btn btn-verde btn-big" href="#avisos">Acceder</a>
+                    <input type="text" class="txt js-username" placeholder="Email">
+                    <input type="password" class="txt js-password" placeholder="Password">
+                    <div class="js-msgerror"></div>
+                    <a class="btn btn-verde btn-big js-acceder" href="#avisos">Acceder</a>
                 </div>
                 
                 <div id="deviceProperties"></div>
@@ -42,13 +43,7 @@
         <div data-role="content">
            <div class="container">
                <div class="aviso__wrapper">
-                <div class="aviso__item">
-                    <h2>Aviso</h2>
-                    <p>Se ha creado un nuevo evento para el 01/02/2019 de la producción La Mozzarela</p>
-                    <p class="align-right">
-                        <a href="#" class="btn btn-verde btn-small">Ok</a>
-                    </p>
-                </div><!--aviso__item-->
+                
                 
                 <p class="align-center">
                     <a href="#conciertos" class="btn btn-verde btn-big">Ver conciertos</a>
@@ -99,6 +94,20 @@
         <div data-role="footer" data-position="fixed" >
            <div class="container">
             <div class="owl-carousel owl-theme">
+               <div class="item">
+                    <a class="js-info" href="#">
+                        info
+                        <img src="css/img/icon-info.png" alt="">
+                    </a>
+                </div><!--item-->
+                
+                <div class="item">
+                    <a class="js-eventos" href="#">
+                        eventos
+                        <img src="css/img/icon-eventos.png" alt="">
+                    </a>
+                </div><!--item-->
+                
                 <div class="item">
                     <a class="js-planning" href="#">
                         planning
@@ -121,25 +130,13 @@
                 </div><!--item-->
                 
                 <div class="item">
-                    <a class="js-info" href="#">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
                     <a class="js-audios" href="#">
                         audios
                         <img src="css/img/icon-audios.png" alt="">
                     </a>
                 </div><!--item-->
                 
-                <div class="item">
-                    <a class="js-eventos" href="#">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
+                
             </div>
             </div>
         </div>
