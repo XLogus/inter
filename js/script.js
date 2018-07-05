@@ -21,6 +21,7 @@ var curid = 0;
 var contenido;
 var user_id = 0;
 var user_uuid = 0;
+var user_firstname = 0;
 
 
 $(document).bind( "pagebeforechange", function( e, data ) {
@@ -58,6 +59,7 @@ $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
+    user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
     } else if($password == "") {
@@ -67,12 +69,14 @@ $(".js-acceder").on("click", function(event) {
         /// Verificar logins
          $.getJSON(serviceURL + 'usuarios/login/', {
              username:$username,
-             password:$password
+             password:$password, 
+             device:user_uuid
          }).done(function(data) {
              //console.log("logeandose");
              datos = jQuery.parseJSON(data);
-             user_id = datos.user_id;
-             user_uuid = device.uuid;
+             user_id = datos.user_id;    
+             user_firstname = datos.firstname;
+             $("h1.ui-title").html(user_firstname);
              console.log("user: "+user_id+" uuid: "+user_uuid);
              if(user_id == "nay") {
                  $(".js-msgerror").html("<p>Usuario o clave incorrectos</p>");
@@ -88,6 +92,7 @@ function getAvisos() {
         $.getJSON(serviceURL + 'producciones/mostraravisos/?user_id='+user_id).done(function(data) {
             $('.eventos__wrap').html("");    
             produs = data;
+            $(".aviso__wrapper").html("");
             $.each(produs, function(index, pela) {
                 
                 rpta = '<div class="aviso__item aviso__item--'+pela.aviso_id+'">';
@@ -104,7 +109,7 @@ function getAvisos() {
 }
 
 function getProducciones() {        
-        $.getJSON(serviceURL + 'producciones/mostrar').done(function(data) {
+        $.getJSON(serviceURL + 'producciones/mostrar/?user_id='+user_id).done(function(data) {
             $('.eventos__wrap').html("");    
             produs = data;
             $.each(produs, function(index, pela) {
@@ -214,6 +219,15 @@ $(".js-eventos").on("click", function() {
     rpta += '<p><strong>Miercoles 25/06/18 a las 17:30h</strong><br>Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.</p>';
     rpta += '<p><strong>Lunes 22/06/18 a las 18:30h</strong><br>Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.</p>';
     $(".concierto__info").html(rpta);
+});
+
+// Enviar Mensaje
+$(".js-enviarmsg").on("click", function() {
+    $mensaje = $('#mensajetxt').val();
+    $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&mensaje='+$mensaje).done(function(data) {            
+            produs = data;
+            $(".msj__wrap").html("<br><h3>Su mensaje fue enviado</h3>");
+        });  
 });
 
 // parse params in hash

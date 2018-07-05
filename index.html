@@ -36,7 +36,8 @@
     <div data-role="page" id="avisos">
 
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1 class="maintitle">Intermezzo</h1> 
+            <a href="#mensaje" data-icon="mail">Mensaje</a>
         </div>
         <!-- /header -->
 
@@ -45,10 +46,11 @@
                <div class="aviso__wrapper">
                 
                 
-                <p class="align-center">
-                    <a href="#conciertos" class="btn btn-verde btn-big">Ver conciertos</a>
-                </p>
+                
                 </div><!--aviso__wrapper-->
+                <p class="align-center">
+                    <a href="#conciertos" class="btn btn-verde btn-big">Ver coros</a>
+                </p>
             </div>
         </div>
         <!-- /content -->
@@ -59,7 +61,8 @@
     <!-- Start of conciertos -->
     <div data-role="page" id="conciertos">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
+            <a href="#mensaje" data-icon="mail">Mensaje</a>
         </div>
         <!-- /header -->
 
@@ -76,7 +79,7 @@
     <!-- Start of produccion -->
     <div data-role="page" id="produccion">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
         </div>
         <!-- /header -->
 
@@ -148,7 +151,7 @@
     <!-- Start of Planning -->
     <div data-role="page" id="planning">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
         </div>
         <!-- /header -->
 
@@ -219,7 +222,7 @@
     <!-- Start of Libreto -->
     <div data-role="page" id="libreto">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
         </div>
         <!-- /header -->
 
@@ -290,7 +293,7 @@
     <!-- Start of partitura -->
     <div data-role="page" id="partitura">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
         </div>
         <!-- /header -->
 
@@ -365,7 +368,7 @@
     <!-- Start of audios -->
     <div data-role="page" id="audios">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
         </div>
         <!-- /header -->
 
@@ -448,26 +451,17 @@
     <!-- Start of eventos -->
     <div data-role="page" id="eventos">
         <div data-role="header">
-            <h1>Fernando</h1>
+            <h1>Intermezzo</h1>
+            <a href="index.html" data-icon="check">Save</a>
         </div>
         <!-- /header -->
 
         <div data-role="content">
            <div class="eventos__wrap"> 
-               <a class="eventos__link active" href="#boheme">La Boheme</a>
-               <a class="eventos__link" href="#">La Flauta Mágica</a>
+               
             </div>
             <div class="container">
-                <p>
-                    <strong>Miercoles 25/06/18 a las 17:30h</strong>
-                    <br>
-                    Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.
-                </p>
-                <p>
-                    <strong>Lunes 22/06/18 a las 18:30h</strong>
-                    <br>
-                    Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.
-                </p>
+                
             </div>
         </div>
         <!-- /content -->
@@ -520,7 +514,32 @@
             </div>
         </div>
         <!-- /footer -->
+    </div><!--page-->
+    
+    <!-- Start of mensaje -->
+    <div data-role="page" id="mensaje">
+        <div data-role="header">
+            <h1>Intermezzo</h1>
+        </div>
+        <!-- /header -->
+
+        <div data-role="content">
+          <div class="container">
+               <div class="msj__wrap">               
+                   <p>Mensaje al administrador</p>
+                   <textarea name="mensajetxt" id="mensajetxt" cols="30" rows="20"></textarea>
+                   <p>
+                       <button class="btn js-enviarmsg">ENVIAR</button>
+                   </p>
+                   <p>
+                       <a href="#conciertos">Regresar</a>
+                   </p>
+                </div>
+            </div>
+        </div>        
+        <!-- /content -->
     </div>
+    <!-- /page -->
     <!-- /eventos -->
     
     <script type="text/javascript" src="cordova.js"></script>
