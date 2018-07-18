@@ -57,15 +57,15 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
 
 
 // Capturar datos
-function onDeviceReady() {
-    /*
-    element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
+function onDeviceReady() {    
+    misdatos = 'Device Model: '    + device.model    + '<br />' +
                         'Device Cordova: '  + device.cordova  + '<br />' +
                         'Device Platform: ' + device.platform + '<br />' +
                         'Device UUID: '     + device.uuid     + '<br />' +
-                        'Device Version: '  + device.version  + '<br />';*/
+                        'Device Version: '  + device.version  + '<br />';
     user_uuid = device.uuid;
-    console.log("uuid: " + user_uuid + " model: "+device.model);
+    jQuery("#deviceProperties").html(misdatos);  
+    console.log("uuid: " + user_uuid + " model: "+device.model);    
 }
 
 
