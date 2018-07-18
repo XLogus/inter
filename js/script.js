@@ -20,7 +20,7 @@ var produs;
 var curid = 0;
 var contenido;
 var user_id = 0;
-var user_uuid = 0;
+var user_uuid;
 var user_firstname = 0;
 
 
@@ -55,11 +55,26 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
     });         
 });
 
+
+// Capturar datos
+function onDeviceReady() {
+    /*
+    element.innerHTML = 'Device Model: '    + device.model    + '<br />' +
+                        'Device Cordova: '  + device.cordova  + '<br />' +
+                        'Device Platform: ' + device.platform + '<br />' +
+                        'Device UUID: '     + device.uuid     + '<br />' +
+                        'Device Version: '  + device.version  + '<br />';*/
+    user_uuid = device.uuid;
+    console.log("uuid: " + user_uuid + " model: "+device.model);
+}
+
+
+
 $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
-    user_uuid = device.uuid;
+    //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
     } else if($password == "") {

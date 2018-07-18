@@ -35,7 +35,8 @@ var app = {
     onDeviceReady: function() {        
         console.log('Received Device Ready Event');
         console.log('calling setup push');
-        //user_uuid = device.uuid;
+        var user_uuid = device.uuid;
+        console.log("uuid: " + device.uuid + "model: "+device.model);
         /*
         var datamobile = 'Device Model: '    + device.model    + '<br />' +
                     'Device Cordova: '  + device.cordova  + '<br />' +
