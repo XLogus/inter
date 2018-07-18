@@ -74,6 +74,7 @@ $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
+    $user_uuid = user_uuid;
     //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
@@ -85,7 +86,7 @@ $(".js-acceder").on("click", function(event) {
          $.getJSON(serviceURL + 'usuarios/login/', {
              username:$username,
              password:$password, 
-             device:user_uuid
+             device:$user_uuid
          }).done(function(data) {
              //console.log("logeandose");
              datos = jQuery.parseJSON(data);
