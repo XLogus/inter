@@ -68,7 +68,7 @@ Miguel Manchego
 		<plugin name="cordova-plugin-splashscreen"  />
 		<plugin name="cordova-plugin-vibration"  />
 		<plugin name="cordova-plugin-firebase"  />
-		<plugin name="cordova-plugin-push"  />
+		<plugin name="phonegap-plugin-push"  />
 		<param name="SENDER_ID" value="520188178657" />
 		<icon src="icono57x57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="icono72x72.png" gap:platform="ios" width="72" height="72" />
