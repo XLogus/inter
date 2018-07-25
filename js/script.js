@@ -60,6 +60,7 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
 function onDeviceReady() {    
     // capturar reistration id
     
+    /*
     var push = PushNotification.init({ 
         "android": {
             "senderID": "520188178657"
@@ -67,7 +68,7 @@ function onDeviceReady() {
     } );
     
     var misdatos = " ";
-    
+        
     push.on('registration', function(data) {    
         console.log("reg"+data.registrationId);    
         misdatos += "registrationID: "+data.registrationId+"<br />";
@@ -86,16 +87,21 @@ function onDeviceReady() {
         'Ok'                  // buttonName
   );
 });
-   
-    /*
+   */
+    
+    //String token = FirebaseInstanceId.getInstance().getToken();
+    
+    
     window.FirebasePlugin.getToken(function(token) {
         // save this server-side and use it to push notifications to this device
         console.log(token);
+        Log.d("MYTAG", "This is your Firebase token" + token);
         misdatos += "Token: "+token;
+        
     }, function(error) {
         console.error(error);
     });
-    */
+    
     
     misdatos += 'Device Model: '    + device.model    + '<br />' +
                         'Device Cordova: '  + device.cordova  + '<br />' +
