@@ -58,14 +58,53 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
 
 // Capturar datos
 function onDeviceReady() {    
-    misdatos = 'Device Model: '    + device.model    + '<br />' +
+    // capturar reistration id
+    
+    var push = PushNotification.init({ 
+        "android": {
+            "senderID": "520188178657"
+        },"ios": {"alert": "true", "badge": "true", "sound": "true"}
+    } );
+    
+    var misdatos = " ";
+    
+    push.on('registration', function(data) {    
+        console.log("reg"+data.registrationId);    
+        misdatos += "registrationID: "+data.registrationId+"<br />";
+    });   
+    
+    push.on('error', function(e) {
+        console.log("push error = " + e.message);
+    });
+    
+    push.on('notification', function(data) {
+        console.log('notification event');
+        navigator.notification.alert(
+        data.message,         // message
+        null,                 // callback
+        data.title,           // title
+        'Ok'                  // buttonName
+  );
+});
+   
+    /*
+    window.FirebasePlugin.getToken(function(token) {
+        // save this server-side and use it to push notifications to this device
+        console.log(token);
+        misdatos += "Token: "+token;
+    }, function(error) {
+        console.error(error);
+    });
+    */
+    
+    misdatos += 'Device Model: '    + device.model    + '<br />' +
                         'Device Cordova: '  + device.cordova  + '<br />' +
                         'Device Platform: ' + device.platform + '<br />' +
                         'Device UUID: '     + device.uuid     + '<br />' +
                         'Device Version: '  + device.version  + '<br />';
     user_uuid = device.uuid;
     jQuery("#deviceProperties").html(misdatos);  
-    console.log("uuid: " + user_uuid + " model: "+device.model);    
+    console.log(misdatos);    
 }
 
 

@@ -3,7 +3,7 @@
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.areafor.intermezzo"
 		versionCode=""
-		version   = "1.06">
+		version   = "1.07">
 		<name>Intermezzo</name>
 		<description>Intermezzo for concerts
 		</description>
@@ -67,6 +67,9 @@ Miguel Manchego
 		<plugin name="cordova-plugin-dialogs"  />
 		<plugin name="cordova-plugin-splashscreen"  />
 		<plugin name="cordova-plugin-vibration"  />
+		<plugin name="cordova-plugin-firebase"  />
+		<plugin name="cordova-plugin-push"  />
+		<param name="SENDER_ID" value="520188178657" />
 		<icon src="icono57x57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="icono72x72.png" gap:platform="ios" width="72" height="72" />
 		<icon src="icono114x114.png" gap:platform="ios" width="114" height="114" />
