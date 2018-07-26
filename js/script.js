@@ -68,7 +68,12 @@ function onDeviceReady() {
     
     
     // capturar reistration id
+    mitoken = FirebaseInstanceId.getInstance().getToken();
+    console.log("Firebase", "token "+  mitoken);
+    alert("token = "+mitoken);
     
+    
+    /*
     var push = PushNotification.init({ "android": {"senderID": "520188178657"}});
                      push.on('registration', function(data) {
                      alert(data.registrationId);
@@ -82,7 +87,7 @@ function onDeviceReady() {
                      alert(e);
                      });
    
-    
+    */
     
     
     console.log(misdatos);    
