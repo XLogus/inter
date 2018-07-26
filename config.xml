@@ -58,7 +58,11 @@ Miguel Manchego
 		<feature name="StatusBar">
             <param name="ios-package" value="CDVStatusBar" onload="true" />
         </feature>
-		<gap:platform name="android" />
+        
+		<platform name="android">
+           <resource-file src="google-services.json" target="/google-services.json" />
+        </platform>
+		
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<feature name="http://api.phonegap.com/1.0/notification"/>		
 		<plugin name="cordova-plugin-statusbar" />
