@@ -2,7 +2,12 @@
 <html lang="es_ES">
 
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
+  
+  <!--
+   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+   <meta name="format-detection" content="telephone=no">
+   <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <title>Intermezzo</title>
 
@@ -24,6 +29,7 @@
                     <a class="btn btn-verde btn-big js-acceder" href="#avisos">Acceder</a>
                 </div>
                 
+                <div id="registration"></div>
                 <div id="deviceProperties"></div>
             </div>
         </div>
@@ -548,11 +554,6 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
-    
-    <script type="text/javascript">
-        //app.initialize();
-        document.addEventListener("deviceready", onDeviceReady, false);
-    </script>
 </body>
 
 </html>

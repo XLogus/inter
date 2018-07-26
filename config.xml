@@ -5,7 +5,7 @@
 		versionCode=""
 		version   = "1.07">
 		<name>Intermezzo</name>
-		<description>Intermezzo for concerts
+		<description>Intermezzo  Coros a la carta
 		</description>
 		<author href="miguelmanchego.com" email="info@miguelmanchego.com">
 Miguel Manchego
@@ -17,7 +17,10 @@ Miguel Manchego
 		<allow-intent href="sms:*" />
 		<allow-intent href="mailto:*" />
 		<allow-intent href="geo:*" />
-		<preference name="phonegap-version" value="cli-7.1.0" />
+		
+		
+		
+		<preference name="phonegap-version" value="cli-8.0.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
@@ -60,7 +63,8 @@ Miguel Manchego
         </feature>
         
 		<platform name="android">
-           <resource-file src="google-services.json" target="/google-services.json" />
+            <allow-intent href="market:*" />
+            <resource-file src="google-services.json" target="app/google-services.json" />
         </platform>
 		
 		<feature name="http://api.phonegap.com/1.0/network"/>
@@ -71,9 +75,10 @@ Miguel Manchego
 		<plugin name="cordova-plugin-dialogs"  />
 		<plugin name="cordova-plugin-splashscreen"  />
 		<plugin name="cordova-plugin-vibration"  />
-		<plugin name="cordova-plugin-fcm"  />
-		<plugin name="phonegap-plugin-push"  />
-		<param name="SENDER_ID" value="520188178657" />
+		<plugin name="phonegap-plugin-push" spec="~2.1.2">
+            <variable name="FCM_VERSION" value="11.0.1" />
+            <param name="SENDER_ID" value="520188178657" />
+        </plugin>
 		<icon src="icono57x57.png" gap:platform="ios" width="57" height="57" />
 		<icon src="icono72x72.png" gap:platform="ios" width="72" height="72" />
 		<icon src="icono114x114.png" gap:platform="ios" width="114" height="114" />

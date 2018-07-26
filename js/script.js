@@ -57,6 +57,7 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
 
 
 // Capturar datos
+/*
 function onDeviceReady() {    
     misdatos = 'Device Model: '    + device.model    + '<br />' +
                         'Device Cordova: '  + device.cordova  + '<br />' +
@@ -68,31 +69,38 @@ function onDeviceReady() {
     
     
     // capturar reistration id
-    mitoken = FirebaseInstanceId.getInstance().getToken();
-    console.log("Firebase", "token "+  mitoken);
-    alert("token = "+mitoken);
-    
-    
-    /*
-    var push = PushNotification.init({ "android": {"senderID": "520188178657"}});
-                     push.on('registration', function(data) {
-                     alert(data.registrationId);
-                     });
-          
-                     push.on('notification', function(data) {
-                     alert(data.title+" Message: " +data.message);
-                     });
-          
-                     push.on('error', function(e) {
-                     alert(e);
-                     });
-   
-    */
-    
+   var push = PushNotification.init({
+            android: {
+            },
+            ios: {
+                alert: "true",
+                badge: true,
+                sound: 'false'
+            }
+        });
+
+    push.on('registration', function (data) {
+            console.log(data.registrationId);
+            console.log(data.registrationType);
+            document.getElementById("registration").appendChild(document.createTextNode("regisID: "+data.registrationId));
+        });
+
+        push.on('notification', function (data) {
+            var ul = document.getElementById("pushList");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(data.message));
+            ul.appendChild(li);
+            console.log(data.message);
+            console.log(data.title);
+            console.log(data.count);
+            console.log(data.sound);
+            console.log(data.image);
+            console.log(data.additionalData);
+        });
     
     console.log(misdatos);    
 }
-
+*/
 
 
 $(".js-acceder").on("click", function(event) {
