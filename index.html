@@ -2,10 +2,8 @@
 <html lang="es_ES">
 
 <head>
-  <meta charset="utf-8">
-  
-  <!--
-   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
+  <meta charset="utf-8">    
+   
    <meta name="format-detection" content="telephone=no">
    <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
@@ -24,12 +22,13 @@
            <div class="container">
                 <div class="portada">
                     <input type="text" class="txt js-username" placeholder="Email">
-                    <input type="password" class="txt js-password" placeholder="Password">
+                    <input type="password" class="txt js-password" placeholder="Clave">
                     <div class="js-msgerror"></div>
-                    <a class="btn btn-verde btn-big js-acceder" href="#avisos">Acceder</a>
+                    <a class="btn btn-verde btn-big js-acceder" href="#avisos">Ingresar</a>
                 </div>
                 
-                <div id="registration"></div>
+                <div id="registration" style="visibility: hidden;"></div>
+                <ul id="pushList"></ul>
                 <div id="deviceProperties"></div>
             </div>
         </div>

@@ -42,11 +42,18 @@ var app = {
                 sound: 'false'
             }
         });
+        
+        // Device info
+        localStorage.setItem("uuid", device.uuid);
+        localStorage.setItem("platform", device.platform);
+        
 
         push.on('registration', function (data) {
             console.log(data.registrationId);
             console.log(data.registrationType);
-            document.getElementById("registration").appendChild(document.createTextNode(data.registrationId));
+            registrationId = document.createTextNode(data.registrationId);
+            jQuery("#registration").html(registrationId);            
+            localStorage.setItem("registrationId", jQuery("#registration").html());
         });
 
         push.on('notification', function (data) {

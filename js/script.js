@@ -23,6 +23,9 @@ var user_id = 0;
 var user_uuid;
 var user_firstname = 0;
 
+$.ajaxSetup({ cache: false, crossDomain: true });
+
+
 
 $(document).bind( "pagebeforechange", function( e, data ) {
     if ( typeof data.toPage === "string" ) {
@@ -103,11 +106,15 @@ function onDeviceReady() {
 */
 
 
+
+
 $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
-    $user_uuid = user_uuid;
+    $user_uuid = localStorage.getItem("uuid");
+    $user_platform = localStorage.getItem("platform");
+    $user_registrationId = localStorage.getItem("registrationId");
     //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
@@ -119,12 +126,17 @@ $(".js-acceder").on("click", function(event) {
          $.getJSON(serviceURL + 'usuarios/login/', {
              username:$username,
              password:$password, 
-             device:$user_uuid
+             uuid:$user_uuid,
+             platform:$user_platform,
+             registrationId:$user_registrationId
          }).done(function(data) {
              //console.log("logeandose");
              datos = jQuery.parseJSON(data);
              user_id = datos.user_id;    
              user_firstname = datos.firstname;
+             localStorage.setItem("user_id", user_id);
+             localStorage.setItem("user_firstname", user_firstname);
+             
              $("h1.ui-title").html(user_firstname);
              console.log("user: "+user_id+" uuid: "+user_uuid);
              if(user_id == "nay") {
