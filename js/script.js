@@ -47,7 +47,39 @@ $(document).bind( "pagebeforechange", function( e, data ) {
             //e.preventDefault();
         }
     }
+    
+    // detectar si estoy en la home 
+    if (location.hash == "" || location.hash == "homepage") {
+        /*
+        var url = location.href;
+        url = url.replace(location.hash,"");
+        location.replace(url);
+        */
+        verificaLogin();
+    }
 });
+
+function verificaLogin() {
+    if (localStorage.getItem("user_id") === null) {
+        // Signifca que no se inicio sesion
+        if (location.hash != "" && location.hash != "homepage") {
+            document.location.hash = "#homepage";
+        }
+        console.log("no se inicio sesion");
+    } else {
+        user_id = localStorage.getItem("user_id");    
+        user_firstname = localStorage.getItem("firstname");
+        console.log("sesion id:"+user_id);
+        document.location.hash = "#avisos";
+    }
+}
+
+// Salir
+$("body").on("click", ".js-salir", function() {
+    localStorage.clear();
+    document.location.hash = "#homepage";
+});
+
 
 $(".aviso__wrapper").on("click", ".js-avisook", function() {
     //alert("notificado");
@@ -149,7 +181,8 @@ $(".js-acceder").on("click", function(event) {
 });
 
 
-function getAvisos() {        
+function getAvisos() {     
+    verificaLogin();
         $.getJSON(serviceURL + 'producciones/mostraravisos/?user_id='+user_id).done(function(data) {
             $('.eventos__wrap').html("");    
             produs = data;
@@ -169,7 +202,8 @@ function getAvisos() {
         });        
 }
 
-function getProducciones() {        
+function getProducciones() {    
+    verificaLogin();
         $.getJSON(serviceURL + 'producciones/mostrar/?user_id='+user_id).done(function(data) {
             $('.eventos__wrap').html("");    
             produs = data;
