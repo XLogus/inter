@@ -107,9 +107,18 @@ $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
-    user_uuid = window.localStorage.getItem("uuid");
-    user_platform = window.localStorage.getItem("platform");
-    user_registrationId = window.localStorage.getItem("registrationId");
+    //user_uuid = window.localStorage.getItem("uuid");
+    //user_platform = window.localStorage.getItem("platform");
+    //user_registrationId = window.localStorage.getItem("registrationId");
+    $user_uuid = $("#user_uuid").val();
+    $user_platform = $("#user_platform").val();
+    $user_registrationId = $("#user_registrationId").val();
+    
+    window.localStorage.setItem("uuid", $user_uuid);
+    window.localStorage.setItem("registrationId", $user_registrationId);
+    window.localStorage.setItem("platform", $user_platform);
+    
+    
     //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
@@ -121,9 +130,9 @@ $(".js-acceder").on("click", function(event) {
          $.getJSON(serviceURL + 'usuarios/login/', {
              username:$username,
              password:$password, 
-             uuid: user_uuid,
-             platform: user_platform,
-             registrationId: user_registrationId
+             uuid: $user_uuid,
+             platform: $user_platform,
+             registrationId: $user_registrationId
          }).done(function(data) {
              //console.log("logeandose");
              datos = jQuery.parseJSON(data);

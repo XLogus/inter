@@ -44,8 +44,10 @@ var app = {
         });
         
         // Device info
-        window.localStorage.setItem("uuid", device.uuid);
-        window.localStorage.setItem("platform", device.platform);
+        //window.localStorage.setItem("uuid", device.uuid);
+        //window.localStorage.setItem("platform", device.platform);
+        $("#user_uuid").val(device.uuid);
+        $("#user_platform").val(device.platform);
         
 
         push.on('registration', function (data) {
@@ -53,7 +55,9 @@ var app = {
             console.log(data.registrationType);
             registrationId = document.createTextNode(data.registrationId);
             jQuery("#registration").html(registrationId);            
-            window.localStorage.setItem("registrationId", jQuery("#registration").html());
+            //window.localStorage.setItem("registrationId", jQuery("#registration").html());
+            regis = jQuery("#registration").html();
+            $("#user_registrationId").val(regis);
         });
 
         push.on('notification', function (data) {
