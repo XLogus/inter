@@ -60,15 +60,15 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 });
 
 function verificaLogin() {
-    if (localStorage.getItem("user_id") === null) {
+    if (window.localStorage.getItem("user_id") === null) {
         // Signifca que no se inicio sesion
         if (location.hash != "" && location.hash != "homepage") {
             document.location.hash = "#homepage";
         }
         console.log("no se inicio sesion");
     } else {
-        user_id = localStorage.getItem("user_id");    
-        user_firstname = localStorage.getItem("firstname");
+        user_id = window.localStorage.getItem("user_id");    
+        user_firstname = window.localStorage.getItem("firstname");
         console.log("sesion id:"+user_id);
         document.location.hash = "#avisos";
     }
@@ -76,8 +76,15 @@ function verificaLogin() {
 
 // Salir
 $("body").on("click", ".js-salir", function() {
-    localStorage.clear();
-    document.location.hash = "#homepage";
+    window.localStorage.clear();
+    //document.location.hash = "#homepage";
+    if (navigator.app) {
+        navigator.app.exitApp();
+    } else if (navigator.device) {
+        navigator.device.exitApp();
+    } else {
+        window.close();
+    }
 });
 
 
@@ -144,9 +151,9 @@ $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
-    $user_uuid = localStorage.getItem("uuid");
-    $user_platform = localStorage.getItem("platform");
-    $user_registrationId = localStorage.getItem("registrationId");
+    $user_uuid = window.localStorage.getItem("uuid");
+    $user_platform = window.localStorage.getItem("platform");
+    $user_registrationId = window.localStorage.getItem("registrationId");
     //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
@@ -166,8 +173,8 @@ $(".js-acceder").on("click", function(event) {
              datos = jQuery.parseJSON(data);
              user_id = datos.user_id;    
              user_firstname = datos.firstname;
-             localStorage.setItem("user_id", user_id);
-             localStorage.setItem("user_firstname", user_firstname);
+             window.localStorage.setItem("user_id", user_id);
+             window.localStorage.setItem("user_firstname", user_firstname);
              
              $("h1.ui-title").html(user_firstname);
              console.log("user: "+user_id+" uuid: "+user_uuid);

@@ -44,8 +44,8 @@ var app = {
         });
         
         // Device info
-        localStorage.setItem("uuid", device.uuid);
-        localStorage.setItem("platform", device.platform);
+        window.localStorage.setItem("uuid", device.uuid);
+        window.localStorage.setItem("platform", device.platform);
         
 
         push.on('registration', function (data) {
@@ -53,7 +53,7 @@ var app = {
             console.log(data.registrationType);
             registrationId = document.createTextNode(data.registrationId);
             jQuery("#registration").html(registrationId);            
-            localStorage.setItem("registrationId", jQuery("#registration").html());
+            window.localStorage.setItem("registrationId", jQuery("#registration").html());
         });
 
         push.on('notification', function (data) {
