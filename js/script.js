@@ -21,7 +21,9 @@ var curid = 0;
 var contenido;
 var user_id = 0;
 var user_uuid;
+var user_platform;
 var user_firstname = 0;
+var user_registrationId;
 
 $.ajaxSetup({ cache: false, crossDomain: true });
 
@@ -69,6 +71,9 @@ function verificaLogin() {
     } else {
         user_id = window.localStorage.getItem("user_id");    
         user_firstname = window.localStorage.getItem("firstname");
+        user_platform = window.localStorage.getItem("platform");
+        user_uuid = window.localStorage.getItem("uuid");
+        user_registrationId = window.localStorage.getItem("registrationId");
         console.log("sesion id:"+user_id);
         document.location.hash = "#avisos";
     }
@@ -98,62 +103,13 @@ $(".aviso__wrapper").on("click", ".js-avisook", function() {
 });
 
 
-// Capturar datos
-/*
-function onDeviceReady() {    
-    misdatos = 'Device Model: '    + device.model    + '<br />' +
-                        'Device Cordova: '  + device.cordova  + '<br />' +
-                        'Device Platform: ' + device.platform + '<br />' +
-                        'Device UUID: '     + device.uuid     + '<br />' +
-                        'Device Version: '  + device.version  + '<br />';
-    user_uuid = device.uuid;
-    jQuery("#deviceProperties").html(misdatos);  
-    
-    
-    // capturar reistration id
-   var push = PushNotification.init({
-            android: {
-            },
-            ios: {
-                alert: "true",
-                badge: true,
-                sound: 'false'
-            }
-        });
-
-    push.on('registration', function (data) {
-            console.log(data.registrationId);
-            console.log(data.registrationType);
-            document.getElementById("registration").appendChild(document.createTextNode("regisID: "+data.registrationId));
-        });
-
-        push.on('notification', function (data) {
-            var ul = document.getElementById("pushList");
-            var li = document.createElement("li");
-            li.appendChild(document.createTextNode(data.message));
-            ul.appendChild(li);
-            console.log(data.message);
-            console.log(data.title);
-            console.log(data.count);
-            console.log(data.sound);
-            console.log(data.image);
-            console.log(data.additionalData);
-        });
-    
-    console.log(misdatos);    
-}
-*/
-
-
-
-
 $(".js-acceder").on("click", function(event) {
     event.preventDefault();
     $username = $(".js-username").val();
     $password = $(".js-password").val();
-    $user_uuid = window.localStorage.getItem("uuid");
-    $user_platform = window.localStorage.getItem("platform");
-    $user_registrationId = window.localStorage.getItem("registrationId");
+    user_uuid = window.localStorage.getItem("uuid");
+    user_platform = window.localStorage.getItem("platform");
+    user_registrationId = window.localStorage.getItem("registrationId");
     //user_uuid = device.uuid;
     if($username == "") {
         $(".js-msgerror").html("<p>Por favor ingrese su usuario</p>");
@@ -165,9 +121,9 @@ $(".js-acceder").on("click", function(event) {
          $.getJSON(serviceURL + 'usuarios/login/', {
              username:$username,
              password:$password, 
-             uuid:$user_uuid,
-             platform:$user_platform,
-             registrationId:$user_registrationId
+             uuid: user_uuid,
+             platform: user_platform,
+             registrationId: user_registrationId
          }).done(function(data) {
              //console.log("logeandose");
              datos = jQuery.parseJSON(data);
@@ -208,11 +164,11 @@ function getAvisos() {
             });
         });   
         
-    
-        $user_uuid = window.localStorage.getItem("uuid");
+       
+        /* $user_uuid = window.localStorage.getItem("uuid");
         $user_platform = window.localStorage.getItem("platform");
-        $user_registrationId = window.localStorage.getItem("registrationId");
-        $(".infoapp__wrapper").html( "uuid: "+   $user_uuid + "platform: "+$user_platform+"registrationID: "+ $user_registrationId );
+        $user_registrationId = window.localStorage.getItem("registrationId");*/
+        $(".infoapp__wrapper").html( "uuid: "+   user_uuid + "platform: "+user_platform+"registrationID: "+ user_registrationId );
 }
 
 function getProducciones() {    
