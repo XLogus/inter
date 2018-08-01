@@ -206,7 +206,13 @@ function getAvisos() {
                 $(".aviso__wrapper").append(rpta);
                 //$('#carteleraList').listview('refresh');    
             });
-        });        
+        });   
+        
+    
+        $user_uuid = window.localStorage.getItem("uuid");
+        $user_platform = window.localStorage.getItem("platform");
+        $user_registrationId = window.localStorage.getItem("registrationId");
+        $(".infoapp__wrapper").html( "uuid: "+   $user_uuid + "platform: "+$user_platform+"registrationID: "+ $user_registrationId );
 }
 
 function getProducciones() {    
