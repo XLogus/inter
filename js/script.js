@@ -15,7 +15,8 @@ $('.owl-carousel').owlCarousel({
     }
 });
 
-var serviceURL = "http://www.miguelmanchego.com/pages/intermezzo/";
+//var serviceURL = "http://www.miguelmanchego.com/pages/intermezzo/";
+var serviceURL = "http://intermezzo-promusic.com/intermezzoapp/";
 var produs;
 var curid = 0;
 var contenido;
