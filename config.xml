@@ -9,6 +9,7 @@
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <access origin="*" />
     <access origin="http://miguelmanchego.com/*" subdomains="true" />
+    <access origin="http://intermezzo-promusic.com/*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -35,7 +36,7 @@
     <preference name="disable-cursor" value="true" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <resource-file src="google-services.json" target="app/google-services.json" />
+        <resource-file src="google-services.json" target="google-services.json" />
         <icon density="ldpi" height="36" src="res/icon/android/icon-36-ldpi.png" width="36" />
         <icon density="mdpi" height="48" src="res/icon/android/icon-48-mdpi.png" width="48" />
         <icon density="hdpi" height="72" src="res/icon/android/icon-72-hdpi.png" width="72" />
