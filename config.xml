@@ -35,6 +35,7 @@
     <preference name="disable-cursor" value="true" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
         <icon density="ldpi" height="36" src="res/icon/android/icon-36-ldpi.png" width="36" />
         <icon density="mdpi" height="48" src="res/icon/android/icon-48-mdpi.png" width="48" />
         <icon density="hdpi" height="72" src="res/icon/android/icon-72-hdpi.png" width="72" />
