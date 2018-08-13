@@ -42,6 +42,7 @@ a {
     border-bottom: 3px solid #000;
     color:#000;
 }
+h1.maintitle a, h1.maintitle a:hover, h1.maintitle a:active { color: #000 !important; }
 
 
 /*******************************
@@ -218,3 +219,18 @@ ul.audios {
 .align-right { text-align: right; }
 .align-center { text-align: center; }
 .align-left { text-align: left; }
+
+
+/********************************
+ iOs Ajustes
+**********************************/
+.mobile-container {
+    /* Status bar height on iOS 11.0 */
+    margin: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
+    /* Status bar height on iOS 11+ */
+    margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);   
+}
+.mx-dataview-controls {
+   margin-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
+   margin-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
+} 

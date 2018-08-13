@@ -163,7 +163,7 @@ function getAvisos() {
             $.each(produs, function(index, pela) {
                 
                 rpta = '<div class="aviso__item aviso__item--'+pela.aviso_id+'">';
-                rpta += '<h2>Aviso</h2>';
+                rpta += '<h2>Aviso <span>'+pela.fecha+'</span></h2>';
                 rpta += '<p>'+pela.texto+'</p>';
                 rpta += '<p class="align-right">';
                 rpta += '<a href="#" data-idaviso="'+pela.aviso_id+'" data-iduser="'+user_id+'" class="btn btn-verde btn-small js-avisook">Ok</a>';
@@ -178,7 +178,7 @@ function getAvisos() {
         /* $user_uuid = window.localStorage.getItem("uuid");
         $user_platform = window.localStorage.getItem("platform");
         $user_registrationId = window.localStorage.getItem("registrationId");*/
-        $(".infoapp__wrapper").html( "uuid: "+   user_uuid + "platform: "+user_platform+"registrationID: "+ user_registrationId );
+        //$(".infoapp__wrapper").html( "uuid: "+   user_uuid + "platform: "+user_platform+"registrationID: "+ user_registrationId );
 }
 
 function getProducciones() {    
@@ -189,10 +189,12 @@ function getProducciones() {
             $.each(produs, function(index, pela) {
                 rpta = '<a class="eventos__link eventolink'+pela.produccion_id+'" href="#produccion?id='+pela.produccion_id+'">';
                 rpta += pela.titulo;
-                rpta += '</a>';
-                $(".eventos__wrap").append(rpta);
+                rpta += '</a>';                
                 //$('#carteleraList').listview('refresh');    
+                $(".eventos__wrap").append(rpta);
             });
+            linkmas = '<a href="#avisos" class="eventos__link">Regresar</a>';
+            $(".eventos__wrap").append(linkmas);
         });        
 }
 

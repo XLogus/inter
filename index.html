@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div class="mobile-container">
     <!-- Start of first page -->
     <div data-role="page" id="homepage" data-position="fixed">
         <div data-role="content" id="ctn">
@@ -27,7 +28,7 @@
                     <a class="btn btn-verde btn-big js-acceder" href="#avisos">Ingresar</a>
                 </div>
                 
-                <div id="registration" style="visibility: hidden;"></div>
+                <div id="registration"></div>
                 <ul id="pushList"></ul>
                 <div id="deviceProperties"></div>
             </div>
@@ -41,7 +42,11 @@
     <div data-role="page" id="avisos">
 
         <div data-role="header">
-            <h1 class="maintitle">Intermezzo</h1> 
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1> 
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -57,8 +62,6 @@
                 <p class="align-center">
                     <a href="#conciertos" class="btn btn-verde btn-big">Ver coros</a>
                 </p>
-                
-                <div class="infoapp__wrapper"></div>
             </div>
         </div>
         <!-- /content -->
@@ -69,7 +72,11 @@
     <!-- Start of conciertos -->
     <div data-role="page" id="conciertos">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -88,7 +95,11 @@
     <!-- Start of produccion -->
     <div data-role="page" id="produccion">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -162,7 +173,11 @@
     <!-- Start of Planning -->
     <div data-role="page" id="planning">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -235,7 +250,11 @@
     <!-- Start of Libreto -->
     <div data-role="page" id="libreto">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -308,7 +327,11 @@
     <!-- Start of partitura -->
     <div data-role="page" id="partitura">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -385,7 +408,11 @@
     <!-- Start of audios -->
     <div data-role="page" id="audios">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -470,7 +497,11 @@
     <!-- Start of eventos -->
     <div data-role="page" id="eventos">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -539,7 +570,11 @@
     <!-- Start of mensaje -->
     <div data-role="page" id="mensaje">
         <div data-role="header">
-            <h1>Intermezzo</h1>
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1>
             <a href="#mensaje" data-icon="mail">Mensaje</a>
             <a href="#" class="js-salir" data-icon="user">Salir</a>
         </div>
@@ -567,6 +602,7 @@
     <input type="hidden" name="user_uuid" id="user_uuid" value="" />
     <input type="hidden" name="user_platform" id="user_platform" value="" />
     <input type="hidden" name="user_registrationId" id="user_registrationId" value="" />
+</div><!--mobile--container-->
     
     <script type="text/javascript" src="cordova.js"></script>
     <script src="js/jquery-2.2.4.min.js"></script>
