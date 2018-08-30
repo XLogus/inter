@@ -1,8 +1,43 @@
+/********************************
+ iOs Ajustes
+**********************************/
+*
+{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input
+{
+-webkit-user-select: auto !important;
+-khtml-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+}
+*
+{
+-webkit-touch-callout: none;
+-moz-touch-callout: none;
+-ms-touch-callout: none;
+touch-callout: none;
+}
+*{
+-webkit-user-drag: none;
+-moz-user-drag: none;
+-ms-user-drag: none;
+user-drag: none;
+}
+
+
 html, body {
-    height : 100%;
+    min-height : 100%;
 }
 body {
-    margin-bottom: 40px;
+    background-color: #dcdbdb;
 }
 a {
     text-decoration: none;
@@ -181,6 +216,40 @@ ul.audios {
 }
 
 /******************************
+  Menu
+**********************************/
+/* Navmenu */
+.jqm-navmenu-panel .ui-listview > li .ui-collapsible-heading {
+	margin: 0;
+}
+.jqm-navmenu-panel .ui-collapsible.ui-li-static {
+	padding: 0;
+	border: none !important;
+}
+.jqm-navmenu-panel .ui-collapsible + li > .ui-btn,
+.jqm-navmenu-panel .ui-collapsible + .ui-collapsible > .ui-collapsible-heading > .ui-btn,
+.jqm-navmenu-panel .ui-panel-inner > .ui-listview > li.ui-first-child .ui-btn {
+	border-top: none !important;
+}
+.jqm-navmenu-panel .ui-listview .ui-listview .ui-btn {
+	padding-left: 1.5em;
+	color: #999;
+}
+.jqm-navmenu-panel .ui-listview .ui-listview .ui-btn.ui-btn-active {
+	color: #fff;
+}
+.jqm-navmenu-panel .ui-btn:after {
+	opacity: .4;
+	filter: Alpha(Opacity=40);
+}
+
+.jqm-navmenu-panel ul li:first-child a{
+	border-top: none;
+}
+
+
+
+/******************************
   Footer
 *******************************/
 .ui-bar-inherit.ui-footer {
@@ -189,6 +258,7 @@ ul.audios {
     height: auto;
 }
 #mensajetxt { height: 120px !important; }
+.mensaje__rpta { color:#FF0000; font-weight: bold; }
 
 /******************************
   Botones
@@ -219,18 +289,3 @@ ul.audios {
 .align-right { text-align: right; }
 .align-center { text-align: center; }
 .align-left { text-align: left; }
-
-
-/********************************
- iOs Ajustes
-**********************************/
-.mobile-container {
-    /* Status bar height on iOS 11.0 */
-    margin: constant(safe-area-inset-top) constant(safe-area-inset-right) constant(safe-area-inset-bottom) constant(safe-area-inset-left);
-    /* Status bar height on iOS 11+ */
-    margin: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);   
-}
-.mx-dataview-controls {
-   margin-bottom: constant(safe-area-inset-bottom); /* iOS 11.0 */
-   margin-bottom: env(safe-area-inset-bottom); /* iOS 11.2 */
-} 

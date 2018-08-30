@@ -6,7 +6,8 @@
    
    <meta name="format-detection" content="telephone=no">
    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+   <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"/>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">    
     <title>Intermezzo</title>
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
@@ -19,7 +20,7 @@
 <div class="mobile-container">
     <!-- Start of first page -->
     <div data-role="page" id="homepage" data-position="fixed">
-        <div data-role="content" id="ctn">
+        <div data-role="content" id="ctn">          
            <div class="container">
                 <div class="portada">
                     <input type="text" class="txt js-username" placeholder="Email">
@@ -40,18 +41,17 @@
 
     <!-- Start of second page -->
     <div data-role="page" id="avisos">
-
         <div data-role="header">
             <h1 class="maintitle">
                <a href="#avisos">
                 Intermezzo
                 </a>
             </h1> 
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
+            <a href="#menu" data-rel="panel" class="ui-btn-right ui-btn ui-btn-icon-left ui-icon-bars">Menu</a>
         </div>
         <!-- /header -->
-
+        
+        <div role="main" class="ui-content jqm-content">
         <div data-role="content">
            <div class="container">
                <div class="aviso__wrapper">
@@ -60,9 +60,10 @@
                 
                 </div><!--aviso__wrapper-->
                 <p class="align-center">
-                    <a href="#conciertos" class="btn btn-verde btn-big">Ver coros</a>
+                    <a href="#conciertos" class="btn btn-verde btn-big">Ver producciones</a>
                 </p>
             </div>
+        </div>
         </div>
         <!-- /content -->
     </div>
@@ -77,10 +78,10 @@
                 Intermezzo
                 </a>
             </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
+            <a href="#menu" data-rel="panel" class="ui-btn-right ui-btn ui-btn-icon-left ui-icon-bars">Menu</a>
         </div>
         <!-- /header -->
+        
 
         <div data-role="content">
            <div class="eventos__wrap"> 
@@ -92,6 +93,9 @@
     <!-- /page -->
     
     
+    
+    
+    
     <!-- Start of produccion -->
     <div data-role="page" id="produccion">
         <div data-role="header">
@@ -100,8 +104,7 @@
                 Intermezzo
                 </a>
             </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
+            <a href="#menu" data-rel="panel" class="ui-btn-right ui-btn ui-btn-icon-left ui-icon-bars">Menu</a>
         </div>
         <!-- /header -->
 
@@ -169,403 +172,7 @@
     </div>
     <!-- /page -->
     
-  
-    <!-- Start of Planning -->
-    <div data-role="page" id="planning">
-        <div data-role="header">
-            <h1 class="maintitle">
-               <a href="#avisos">
-                Intermezzo
-                </a>
-            </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
-        </div>
-        <!-- /header -->
 
-        <div data-role="content">
-           <div class="eventos__wrap"> 
-               <a class="eventos__link active" href="#boheme">La Boheme</a>
-               <a class="eventos__link" href="#">La Flauta Mágica</a>
-            </div>
-            <div class="container">
-               <h2>Planning</h2>
-                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
-            </div>
-        </div>
-        <!-- /content -->
-
-        <div data-role="footer" data-position="fixed" >
-           <div class="container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <a href="#planning">
-                        planning
-                        <img src="css/img/icon-planning.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#libreto">
-                        libreto
-                        <img src="css/img/icon-libreto.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#partitura">
-                        partitura
-                        <img src="css/img/icon-partitura.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#boheme">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#audios">
-                        audios
-                        <img src="css/img/icon-audios.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#eventos">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
-            </div>
-            </div>
-        </div>
-        <!-- /footer -->
-    </div>
-    <!-- /planning -->
-    
-    
-    <!-- Start of Libreto -->
-    <div data-role="page" id="libreto">
-        <div data-role="header">
-            <h1 class="maintitle">
-               <a href="#avisos">
-                Intermezzo
-                </a>
-            </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
-        </div>
-        <!-- /header -->
-
-        <div data-role="content">
-           <div class="eventos__wrap"> 
-               <a class="eventos__link active" href="#boheme">La Boheme</a>
-               <a class="eventos__link" href="#">La Flauta Mágica</a>
-            </div>
-            <div class="container">
-               <h2>Libreto</h2>
-                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
-            </div>
-        </div>
-        <!-- /content -->
-
-        <div data-role="footer" data-position="fixed" >
-           <div class="container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <a href="#planning">
-                        planning
-                        <img src="css/img/icon-planning.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#libreto">
-                        libreto
-                        <img src="css/img/icon-libreto.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#partitura">
-                        partitura
-                        <img src="css/img/icon-partitura.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#boheme">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#audios">
-                        audios
-                        <img src="css/img/icon-audios.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#eventos">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
-            </div>
-            </div>
-        </div>
-        <!-- /footer -->
-    </div>
-    <!-- /libreto -->
-    
-    
-    <!-- Start of partitura -->
-    <div data-role="page" id="partitura">
-        <div data-role="header">
-            <h1 class="maintitle">
-               <a href="#avisos">
-                Intermezzo
-                </a>
-            </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
-        </div>
-        <!-- /header -->
-
-        <div data-role="content">
-           <div class="eventos__wrap"> 
-               <a class="eventos__link active" href="#boheme">La Boheme</a>
-               <a class="eventos__link" href="#">La Flauta Mágica</a>
-            </div>
-            <div class="container">
-               <h2>Partitura</h2>
-                <p>Aliquam erat volutpat. Vestibulum sit amet tincidunt eros. Nulla in arcu non purus accumsan convallis. Sed posuere quam eget augue facilisis, vel varius erat mollis. Integer a risus placerat, fermentum tellus non, ultrices velit. Mauris fermentum nulla et sapien tempor tristique. Phasellus malesuada dui in nulla scelerisque mattis in vel risus. Nam risus lorem, sodales nec dapibus eget, rhoncus non tortor. Quisque semper justo a ante vehicula laoreet.  </p>
-                <p>
-                    <a href="http://miguelmanchego.com/pages/intermezzoapp/pdf/partitura.pdf" target="_blank" class="btn btn-verde btn-big">Descargar</a>
-                </p>
-            </div>
-        </div>
-        <!-- /content -->
-
-        <div data-role="footer" data-position="fixed" >
-           <div class="container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <a href="#planning">
-                        planning
-                        <img src="css/img/icon-planning.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#libreto">
-                        libreto
-                        <img src="css/img/icon-libreto.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#partitura">
-                        partitura
-                        <img src="css/img/icon-partitura.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#boheme">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#audios">
-                        audios
-                        <img src="css/img/icon-audios.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#eventos">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
-            </div>
-            </div>
-        </div>
-        <!-- /footer -->
-    </div>
-    <!-- /libreto -->
-    
-    
-    
-    <!-- Start of audios -->
-    <div data-role="page" id="audios">
-        <div data-role="header">
-            <h1 class="maintitle">
-               <a href="#avisos">
-                Intermezzo
-                </a>
-            </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
-        </div>
-        <!-- /header -->
-
-        <div data-role="content">
-           <div class="eventos__wrap"> 
-               <a class="eventos__link active" href="#boheme">La Boheme</a>
-               <a class="eventos__link" href="#">La Flauta Mágica</a>
-            </div>
-            <div class="container">
-                <ul class="audios">
-                    <li>
-                         <audio controls>
-                              <source src="http://miguelmanchego.com/pages/intermezzoapp/mp3/audio1.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio> 
-                    </li>
-                    <li>
-                        <audio controls>
-                              <source src="http://miguelmanchego.com/pages/intermezzoapp/mp3/audio2.mp3" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio> 
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- /content -->
-
-        <div data-role="footer" data-position="fixed" >
-           <div class="container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <a href="#planning">
-                        planning
-                        <img src="css/img/icon-planning.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#libreto">
-                        libreto
-                        <img src="css/img/icon-libreto.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#partitura">
-                        partitura
-                        <img src="css/img/icon-partitura.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#boheme">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#audios">
-                        audios
-                        <img src="css/img/icon-audios.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#eventos">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
-            </div>
-            </div>
-        </div>
-        <!-- /footer -->
-    </div>
-    <!-- /audios -->
-    
-    
-    <!-- Start of eventos -->
-    <div data-role="page" id="eventos">
-        <div data-role="header">
-            <h1 class="maintitle">
-               <a href="#avisos">
-                Intermezzo
-                </a>
-            </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
-        </div>
-        <!-- /header -->
-
-        <div data-role="content">
-           <div class="eventos__wrap"> 
-               
-            </div>
-            <div class="container">
-                
-            </div>
-        </div>
-        <!-- /content -->
-
-        <div data-role="footer" data-position="fixed" >
-           <div class="container">
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <a href="#planning">
-                        planning
-                        <img src="css/img/icon-planning.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#libreto">
-                        libreto
-                        <img src="css/img/icon-libreto.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#partitura">
-                        partitura
-                        <img src="css/img/icon-partitura.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#boheme">
-                        info
-                        <img src="css/img/icon-info.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#audios">
-                        audios
-                        <img src="css/img/icon-audios.png" alt="">
-                    </a>
-                </div><!--item-->
-                
-                <div class="item">
-                    <a href="#eventos">
-                        eventos
-                        <img src="css/img/icon-eventos.png" alt="">
-                    </a>
-                </div><!--item-->
-            </div>
-            </div>
-        </div>
-        <!-- /footer -->
-    </div><!--page-->
     
     <!-- Start of mensaje -->
     <div data-role="page" id="mensaje">
@@ -575,8 +182,7 @@
                 Intermezzo
                 </a>
             </h1>
-            <a href="#mensaje" data-icon="mail">Mensaje</a>
-            <a href="#" class="js-salir" data-icon="user">Salir</a>
+            <a href="#menu" data-rel="panel" class="ui-btn-right ui-btn ui-btn-icon-left ui-icon-bars">Menu</a>
         </div>
         <!-- /header -->
 
@@ -584,6 +190,7 @@
           <div class="container">
                <div class="msj__wrap">               
                    <p>Mensaje al administrador</p>
+                   <div class="mensaje__rpta"></div>
                    <textarea name="mensajetxt" id="mensajetxt" cols="30" rows="20"></textarea>
                    <p>
                        <button class="btn js-enviarmsg">ENVIAR</button>
@@ -599,6 +206,25 @@
     <!-- /page -->
     <!-- /eventos -->
     
+    
+<div data-role="panel" class="jqm-navmenu-panel" data-position="right" id="menu" data-display="overlay" data-theme="a">
+        <ul class="jqm-list ui-alt-icon ui-nodisc-icon">           
+            <li data-filtertext="avisos" data-icon="home">
+                <a href="#avisos" data-icon="mail">Avisos</a>            
+            </li>
+            <li data-filtertext="producciones">
+                <a href="#conciertos" data-icon="mail">Producciones</a>            
+            </li>
+            <li data-filtertext="mensaje" data-icon="mail">
+                <a href="#mensaje" data-icon="mail">Enviar Mensaje</a>            
+            </li>
+            <li data-filtertext="salir">                        
+                <a href="#" class="js-salir" data-icon="user">Salir</a>
+            </li>
+        </ul>
+    </div><!--panel-->
+    
+    
     <input type="hidden" name="user_uuid" id="user_uuid" value="" />
     <input type="hidden" name="user_platform" id="user_platform" value="" />
     <input type="hidden" name="user_registrationId" id="user_registrationId" value="" />
@@ -608,6 +234,7 @@
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
+    <script src="js/fastclick.js"></script>
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
 </body>

@@ -31,6 +31,12 @@ $.ajaxSetup({ cache: false, crossDomain: true });
 
 
 $(document).bind( "pagebeforechange", function( e, data ) {
+    $('audio').each(function(){
+        this.pause(); // Stop playing
+        this.currentTime = 0; // Reset time
+    }); 
+    
+    
     if ( typeof data.toPage === "string" ) {
         var u = $.mobile.path.parseUrl( data.toPage );
         var params = hashParams(u.hash);
@@ -91,6 +97,7 @@ $("body").on("click", ".js-salir", function() {
     } else {
         window.close();
     }
+    document.location.hash = "#homepage";
 });
 
 
@@ -142,7 +149,7 @@ $(".js-acceder").on("click", function(event) {
              window.localStorage.setItem("user_id", user_id);
              window.localStorage.setItem("user_firstname", user_firstname);
              
-             $("h1.ui-title").html(user_firstname);
+             $("h1.ui-title").html('<a href="#avisos">'+user_firstname+'</a>');
              console.log("user: "+user_id+" uuid: "+user_uuid);
              if(user_id == "nay") {
                  $(".js-msgerror").html("<p>Usuario o clave incorrectos</p>");
@@ -281,9 +288,23 @@ $(".js-info").on("click", function() {
 $(".js-audios").on("click", function() {
     var id = curid;  
     contenido = produs[id];    
+    audio1 = contenido.audio1;
+    audio2 = contenido.audio2;
+    audio3 = contenido.audio3;
+    
     rpta = '<h3>'+contenido.titulo+'</h3>';
-    rpta += '<ul class="audios"><li><audio controls><source src="http://miguelmanchego.com/pages/intermezzoapp/mp3/audio1.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';
-    rpta += '<li><audio controls><source src="http://miguelmanchego.com/pages/intermezzoapp/mp3/audio2.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio></li>';
+    rpta += '<ul class="audios">';
+    if(audio1 != "") {
+        rpta += '<li><audio controls><source src="'+audio1+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
+    }
+    else if(audio2 != "") {
+        rpta += '<li><audio controls><source src="'+audio2+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
+    }
+    else if(audio3 != "") {
+        rpta += '<li><audio controls><source src="'+audio3+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
+    } else {
+        rpta += '<li>No se encontraron audios</li>';
+    }
     rpta += '</ul>';
     $(".concierto__info").html(rpta);
 });
@@ -292,18 +313,24 @@ $(".js-eventos").on("click", function() {
     var id = curid;  
     contenido = produs[id];    
     rpta = '<h3>Eventos</h3>';
-    rpta += '<p><strong>Miercoles 25/06/18 a las 17:30h</strong><br>Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.</p>';
-    rpta += '<p><strong>Lunes 22/06/18 a las 18:30h</strong><br>Suspendisse vel finibus libero, ut hendrerit risus. Mauris egestas tellus nunc, quis pharetra tortor consequat ut. Morbi ultrices pretium scelerisque. Aenean eu porta diam, nec ornare lorem.</p>';
+    rpta += contenido.eventos;
+    
     $(".concierto__info").html(rpta);
 });
 
 // Enviar Mensaje
 $(".js-enviarmsg").on("click", function() {
     $mensaje = $('#mensajetxt').val();
-    $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&mensaje='+$mensaje).done(function(data) {            
+    if($mensaje != "") {
+        $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&mensaje='+$mensaje).done(function(data) {            
             produs = data;
-            $(".msj__wrap").html("<br><h3>Su mensaje fue enviado</h3>");
+            //$(".msj__wrap").html("<br><h3>Su mensaje fue enviado</h3>");
+            $('.mensaje__rpta').html("Su mensaje fue enviado, en breve le contestaremos")
+            $('#mensajetxt').val('');
         });  
+    } else {
+        $('.mensaje__rpta').html("Por favor ingrese un mensaje")
+    }
 });
 
 // parse params in hash
@@ -353,3 +380,9 @@ function onDeviceReady() {
     
 }
 */
+
+$(function() {
+    $("[data-role=panel] ul").listview();
+    $("[data-role=panel]").enhanceWithin().panel();
+	FastClick.attach(document.body);    
+});
