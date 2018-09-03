@@ -200,7 +200,7 @@ function getProducciones() {
                 //$('#carteleraList').listview('refresh');    
                 $(".eventos__wrap").append(rpta);
             });
-            linkmas = '<a href="#avisos" class="eventos__link">Regresar</a>';
+            linkmas = '<a href="#avisos" class="eventos__link">Volver</a>';
             $(".eventos__wrap").append(linkmas);
         });        
 }
