@@ -1,14 +1,6 @@
 /********************************
  iOs Ajustes
 **********************************/
-*
-{
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
 
 input
 {
@@ -18,6 +10,7 @@ input
 -ms-user-select: auto !important;
 user-select: auto !important;
 }
+/*
 *
 {
 -webkit-touch-callout: none;
@@ -25,12 +18,14 @@ user-select: auto !important;
 -ms-touch-callout: none;
 touch-callout: none;
 }
+*/
 *{
 -webkit-user-drag: none;
 -moz-user-drag: none;
 -ms-user-drag: none;
 user-drag: none;
 }
+
 
 
 html, body {
@@ -205,7 +200,39 @@ ul.audios {
         font-weight: 400;ç
         font-size: 18px;
     }
+audio { background-color: #59b062; width: 100%; }
 
+a.js-play {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:2px solid #59b062;
+    margin-right: 10px;
+    overflow: hidden;
+    text-align: center;    
+    background-image: url(images/icons-svg/play.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px;
+    text-indent: -999px;
+    vertical-align: middle;
+    background-color: #FFF;
+}
+a.js-play.pause {
+    background-image: url(images/icons-svg/pause.svg);
+}
+.player__wrapper {
+    border-radius: 5px;
+    background-color: #d4d4d4;
+    padding: 10px 20px;    
+}
+.musicduration {
+    font-size: 13px;
+    text-align: right;
+    padding-top: 0px;
+}
+progress#seek-obj { vertical-align: middle; width: 220px; }
 
 /*******************************
   Formulario
@@ -289,3 +316,5 @@ ul.audios {
 .align-right { text-align: right; }
 .align-center { text-align: center; }
 .align-left { text-align: left; }
+
+audio { display: none; }

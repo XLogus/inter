@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">    
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -62,6 +62,35 @@
                 <p class="align-center">
                     <a href="#conciertos" class="btn btn-verde btn-big">Ver producciones</a>
                 </p>
+            </div>
+        </div>
+        </div>
+        <!-- /content -->
+    </div>
+    <!-- /page -->
+    
+    
+    <!-- Start of second page -->
+    <div data-role="page" id="pasados">
+        <div data-role="header">
+            <h1 class="maintitle">
+               <a href="#avisos">
+                Intermezzo
+                </a>
+            </h1> 
+            <a href="#menu" data-rel="panel" class="ui-btn-right ui-btn ui-btn-icon-left ui-icon-bars">Menu</a>
+        </div>
+        <!-- /header -->
+        
+        <div role="main" class="ui-content jqm-content">
+        <div data-role="content">
+           <div class="container">
+               <div class="aviso__wrapper">
+                
+                
+                
+                </div><!--aviso__wrapper-->
+            
             </div>
         </div>
         </div>
@@ -210,7 +239,10 @@
 <div data-role="panel" class="jqm-navmenu-panel" data-position="right" id="menu" data-display="overlay" data-theme="a">
         <ul class="jqm-list ui-alt-icon ui-nodisc-icon">           
             <li data-filtertext="avisos" data-icon="home">
-                <a href="#avisos" data-icon="mail">Ver Avisos</a>            
+                <a href="#avisos" data-icon="mail">Inicio</a>            
+            </li>
+            <li data-filtertext="avisos">
+                <a href="#pasados" data-icon="mail">Avisos Pasados</a>            
             </li>
             <li data-filtertext="producciones">
                 <a href="#conciertos" data-icon="mail">Ver Producciones</a>            
@@ -219,7 +251,7 @@
                 <a href="#mensaje" data-icon="mail">Enviar Mensaje</a>            
             </li>
             <li data-filtertext="salir">
-                <a href="#" class="js-salir" data-icon="user">Salir</a>
+                <a href="#" class="js-salir" data-icon="user">Cerrar sesión</a>
             </li>
         </ul>
     </div><!--panel-->
@@ -234,7 +266,7 @@
     <script src="js/jquery-2.2.4.min.js"></script>
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
-    <script src="js/fastclick.js"></script>
+    <script src="js/fastclick.js"></script>    
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
 </body>

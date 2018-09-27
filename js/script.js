@@ -25,6 +25,7 @@ var user_uuid;
 var user_platform;
 var user_firstname = 0;
 var user_registrationId;
+var music;
 
 $.ajaxSetup({ cache: false, crossDomain: true });
 
@@ -34,6 +35,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
     $('audio').each(function(){
         this.pause(); // Stop playing
         this.currentTime = 0; // Reset time
+        music.pause();
     }); 
     
     
@@ -44,6 +46,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
         var re1 = /^#conciertos/;
         var re2 = /^#produccion/;
         var re3 = /^#avisos/;
+        var re4 = /^#pasados/;
         
         if ( u.hash.search(re1) !== -1 ) {
             getProducciones();
@@ -52,6 +55,8 @@ $(document).bind( "pagebeforechange", function( e, data ) {
             e.preventDefault()
         } else if(u.hash.search(re3) !== -1) {
             getAvisos();
+        } else if(u.hash.search(re4) !== -1) {
+            getAvisos2();
         } else {
             //e.preventDefault();
         }
@@ -152,7 +157,9 @@ $(".js-acceder").on("click", function(event) {
              $("h1.ui-title").html('<a href="#avisos">'+user_firstname+'</a>');
              console.log("user: "+user_id+" uuid: "+user_uuid);
              if(user_id == "nay") {
-                 $(".js-msgerror").html("<p>Usuario o clave incorrectos</p>");
+                 $("input.js-username").val("");
+                 $("input.js-password").val("");
+                 $(".js-msgerror").html("<p>Usuario o clave incorrectos</p>");                 
              } else {
                  $.mobile.changePage("#avisos");
              }
@@ -186,6 +193,24 @@ function getAvisos() {
         $user_platform = window.localStorage.getItem("platform");
         $user_registrationId = window.localStorage.getItem("registrationId");*/
         //$(".infoapp__wrapper").html( "uuid: "+   user_uuid + "platform: "+user_platform+"registrationID: "+ user_registrationId );
+}
+
+function getAvisos2() {     
+    verificaLogin();
+        $.getJSON(serviceURL + 'producciones/mostraravisos2/?user_id='+user_id).done(function(data) {
+            $('.eventos__wrap').html("");    
+            produs = data;
+            $(".aviso__wrapper").html("");
+            $.each(produs, function(index, pela) {
+                
+                rpta = '<div class="aviso__item aviso__item--'+pela.aviso_id+'">';
+                rpta += '<h2>Aviso <span>'+pela.fecha+'</span></h2>';
+                rpta += '<p>'+pela.texto+'</p>';                
+                rpta += '</div>';
+                $(".aviso__wrapper").append(rpta);
+                //$('#carteleraList').listview('refresh');    
+            });
+        });   
 }
 
 function getProducciones() {    
@@ -240,6 +265,7 @@ function getDetalleConcierto(url, params, options) {
 }
 
 $(".js-planning").on("click", function() {
+    if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
     rpta = '<h3>Planning</h3>';
@@ -252,6 +278,7 @@ $(".js-planning").on("click", function() {
 });
 
 $(".js-libreto").on("click", function() {
+    if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
     rpta = '<h3>Libreto</h3>';
@@ -264,6 +291,7 @@ $(".js-libreto").on("click", function() {
 });
 
 $(".js-partitura").on("click", function() {
+    if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
     rpta = '<h3>Partitura</h3>';
@@ -276,6 +304,7 @@ $(".js-partitura").on("click", function() {
 });
 
 $(".js-info").on("click", function() {
+    if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];    
     rpta = '<h3>'+contenido.titulo+'</h3>';
@@ -286,6 +315,7 @@ $(".js-info").on("click", function() {
 });
 
 $(".js-audios").on("click", function() {
+    if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];    
     audio1 = contenido.audio1;
@@ -293,20 +323,30 @@ $(".js-audios").on("click", function() {
     audio3 = contenido.audio3;
     
     rpta = '<h3>'+contenido.titulo+'</h3>';
+    rpta += '<div class="player__wrapper">';
+    rpta += '<a class="js-play btn--control" href="#">play</a>';
+    rpta += '<progress id="seek-obj" value="0" max="1"></progress>';
+    rpta += '<div class="musicduration"><span class="js-totalduration"></span> / ';
+    rpta += '<span class="js-curtime"></span></div>';
+    rpta += '<div class="js-pista"></div>'; 
+    rpta += '</div>';
+    
     rpta += '<ul class="audios">';
     if(audio1 != "") {
-        rpta += '<li><audio controls><source src="'+audio1+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
+        rpta += '<li><a class="js-eligepista" data-musica="'+audio1+'" href="#">Escuchar audio 1</a><audio controls><source src="'+audio1+'" type="audio/mpeg">Your browser does not support the audio element.</audio></li>';
     }
-    else if(audio2 != "") {
-        rpta += '<li><audio controls><source src="'+audio2+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
+    if(audio2 != "") {
+        rpta += '<li><a class="js-eligepista" data-musica="'+audio2+'" href="#">Escuchar audio 2</a></li>';    
     }
-    else if(audio3 != "") {
-        rpta += '<li><audio controls><source src="'+audio3+'" type="audio/mpeg">Your browser does not support the audio element.</audio> </li>';    
-    } else {
+    if(audio3 != "") {
+        rpta += '<li><a class="js-eligepista" data-musica="'+audio3+'" href="#">Escuchar audio 3</a></li>';    
+    } 
+    if(audio1 != "" && audio2 != "" && audio3 != "") {
         rpta += '<li>No se encontraron audios</li>';
     }
     rpta += '</ul>';
     $(".concierto__info").html(rpta);
+    setAudio(audio1);   
 });
 
 $(".js-eventos").on("click", function() {
@@ -386,3 +426,74 @@ $(function() {
     $("[data-role=panel]").enhanceWithin().panel();
 	FastClick.attach(document.body);    
 });
+
+
+/// BOF Audio player
+$("body").on("click", ".js-play", function() {
+    if (music.paused && !music.ended) {
+        music.play();
+        $(this).html("pause");
+        $(this).addClass("pause");
+    } else {
+        music.pause();
+        $(this).html("play");
+        $(this).removeClass("pause");
+    }
+});
+
+$("body").on("click", ".js-eligepista", function() {    
+    music.pause();    
+    mimusica = $(this).data("musica");
+    console.log(mimusica);
+    setAudio(mimusica); 
+    
+    music.play();
+    $(".js-play").html("pause");
+    $(".js-play").addClass("pause");
+    
+});
+
+function setAudio(pista){
+    music = new Audio(pista);    
+    var progressbar = $("#seek-obj");    
+    var currentTime;
+    var duration
+    
+    music.addEventListener("loadedmetadata", function(_event) {
+        var currentTime = music.currentTime | 0;
+        var duration = music.duration | 0;
+        
+        var minutes = "0" + Math.floor(duration / 60);
+        var seconds = "0" + (duration - minutes * 60);
+        var dur = minutes.substr(-2) + ":" + seconds.substr(-2);
+        
+        var minutes = "0" + Math.floor(currentTime / 60);
+        var seconds = "0" + (currentTime - minutes * 60);
+        var cur = minutes.substr(-2) + ":" + seconds.substr(-2);
+        
+        $(".js-totalduration").html(dur); 
+        //$(".js-pista").html(music.currentSrc);
+        progressbar.val(currentTime/duration);
+        document.getElementById('seek-obj').addEventListener("click", seek);
+    });
+    
+    music.addEventListener("timeupdate", function(_event) {
+        var currentTime = music.currentTime | 0;
+        var duration = music.duration | 0;
+        
+        var minutes = "0" + Math.floor(currentTime / 60);
+        var seconds = "0" + (currentTime - minutes * 60);
+        var cur = minutes.substr(-2) + ":" + seconds.substr(-2);
+        
+        $(".js-curtime").html(cur);   
+        progressbar.val(currentTime/duration);
+    });
+    
+    
+    function seek(event) {
+        var percent = event.offsetX / this.offsetWidth;
+        music.currentTime = percent * music.duration;
+        progressbar.value = percent / 100;
+    }
+}
+/// EOF Audio player
