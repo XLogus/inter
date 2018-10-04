@@ -1,3 +1,8 @@
+$(function() {
+    refreshCarousel();
+});
+
+function refreshCarousel() {
 $('.owl-carousel').owlCarousel({
     loop:false,
     margin:10,
@@ -14,6 +19,8 @@ $('.owl-carousel').owlCarousel({
         }
     }
 });
+
+}
 
 //var serviceURL = "http://www.miguelmanchego.com/pages/intermezzo/";
 var serviceURL = "http://intermezzo-promusic.com/intermezzoapp/";
@@ -32,10 +39,11 @@ $.ajaxSetup({ cache: false, crossDomain: true });
 
 
 $(document).bind( "pagebeforechange", function( e, data ) {
+    
     $('audio').each(function(){
         this.pause(); // Stop playing
         this.currentTime = 0; // Reset time
-        music.pause();
+        //music.pause();
     }); 
     
     
@@ -47,36 +55,39 @@ $(document).bind( "pagebeforechange", function( e, data ) {
         var re2 = /^#produccion/;
         var re3 = /^#avisos/;
         var re4 = /^#pasados/;
+        var re5 = /^#mensaje/;
+        
         
         if ( u.hash.search(re1) !== -1 ) {
             getProducciones();
         } else if( u.hash.search(re2) !== -1 ){            
-            getDetalleConcierto(u, params, data.options);            
-            e.preventDefault()
+            getDetalleConcierto(u, params, data.options);  
+            $(".concierto__mp3").hide();
         } else if(u.hash.search(re3) !== -1) {
             getAvisos();
         } else if(u.hash.search(re4) !== -1) {
             getAvisos2();
+        } else if(u.hash.search(re5) !== -1) {
+            verificaLogin();
         } else {
             //e.preventDefault();
-        }
+        } 
+        
     }
     
     // detectar si estoy en la home 
+    
     if (location.hash == "" || location.hash == "homepage") {
-        /*
-        var url = location.href;
-        url = url.replace(location.hash,"");
-        location.replace(url);
-        */
         verificaLogin();
     }
+    
+    
 });
 
 function verificaLogin() {
     if (window.localStorage.getItem("user_id") === null) {
         // Signifca que no se inicio sesion
-        if (location.hash != "" && location.hash != "homepage") {
+        if (location.hash != "" || location.hash != "homepage") {
             document.location.hash = "#homepage";
         }
         console.log("no se inicio sesion");
@@ -87,7 +98,9 @@ function verificaLogin() {
         user_uuid = window.localStorage.getItem("uuid");
         user_registrationId = window.localStorage.getItem("registrationId");
         console.log("sesion id:"+user_id);
-        document.location.hash = "#avisos";
+        if (location.hash == "" || location.hash == "homepage") {
+            document.location.hash = "#avisos";
+        }
     }
 }
 
@@ -200,14 +213,14 @@ function getAvisos2() {
         $.getJSON(serviceURL + 'producciones/mostraravisos2/?user_id='+user_id).done(function(data) {
             $('.eventos__wrap').html("");    
             produs = data;
-            $(".aviso__wrapper").html("");
+            $(".aviso__wrapper2").html("");
             $.each(produs, function(index, pela) {
                 
                 rpta = '<div class="aviso__item aviso__item--'+pela.aviso_id+'">';
                 rpta += '<h2>Aviso <span>'+pela.fecha+'</span></h2>';
                 rpta += '<p>'+pela.texto+'</p>';                
                 rpta += '</div>';
-                $(".aviso__wrapper").append(rpta);
+                $(".aviso__wrapper2").append(rpta);
                 //$('#carteleraList').listview('refresh');    
             });
         });   
@@ -227,7 +240,8 @@ function getProducciones() {
             });
             linkmas = '<a href="#avisos" class="eventos__link">Volver</a>';
             $(".eventos__wrap").append(linkmas);
-        });        
+        }); 
+    refreshCarousel();
 }
 
 function getDetalleConcierto(url, params, options) {
@@ -265,6 +279,7 @@ function getDetalleConcierto(url, params, options) {
 }
 
 $(".js-planning").on("click", function() {
+    $(".concierto__mp3").hide();
     if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
@@ -278,6 +293,7 @@ $(".js-planning").on("click", function() {
 });
 
 $(".js-libreto").on("click", function() {
+    $(".concierto__mp3").hide();
     if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
@@ -291,6 +307,7 @@ $(".js-libreto").on("click", function() {
 });
 
 $(".js-partitura").on("click", function() {
+    $(".concierto__mp3").hide();
     if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];
@@ -304,6 +321,7 @@ $(".js-partitura").on("click", function() {
 });
 
 $(".js-info").on("click", function() {
+    $(".concierto__mp3").hide();
     if (typeof music !== 'undefined') { music.pause(); }
     var id = curid;  
     contenido = produs[id];    
@@ -315,7 +333,8 @@ $(".js-info").on("click", function() {
 });
 
 $(".js-audios").on("click", function() {
-    if (typeof music !== 'undefined') { music.pause(); }
+    //if (typeof music !== 'undefined') { music.pause(); }
+    $(".concierto__mp3").show();
     var id = curid;  
     contenido = produs[id];    
     audio1 = contenido.audio1;
@@ -323,15 +342,18 @@ $(".js-audios").on("click", function() {
     audio3 = contenido.audio3;
     
     rpta = '<h3>'+contenido.titulo+'</h3>';
-    rpta += '<div class="player__wrapper">';
+    /*
+    rpta += '<div class="player__wrapper">';    
     rpta += '<a class="js-play btn--control" href="#">play</a>';
     rpta += '<progress id="seek-obj" value="0" max="1"></progress>';
     rpta += '<div class="musicduration"><span class="js-totalduration"></span> / ';
     rpta += '<span class="js-curtime"></span></div>';
-    rpta += '<div class="js-pista"></div>'; 
+    rpta += '<div class="js-pista"></div>';     
     rpta += '</div>';
+    */
     
-    rpta += '<ul class="audios">';
+    /*
+    rpta += '<ul class="audios">';    
     if(audio1 != "") {
         rpta += '<li><a class="js-eligepista" data-musica="'+audio1+'" href="#">Escuchar audio 1</a><audio controls><source src="'+audio1+'" type="audio/mpeg">Your browser does not support the audio element.</audio></li>';
     }
@@ -344,9 +366,30 @@ $(".js-audios").on("click", function() {
     if(audio1 != "" && audio2 != "" && audio3 != "") {
         rpta += '<li>No se encontraron audios</li>';
     }
-    rpta += '</ul>';
-    $(".concierto__info").html(rpta);
-    setAudio(audio1);   
+    */
+    if(audio1 != "") {
+        $("#audio1").attr("src", audio1);
+        $("#audio1").show();
+    } else {
+        $("#audio1").hide();
+    }
+    if(audio2 != "") {
+        $("#audio2").attr("src", audio2);
+        $("#audio2").show();
+    } else {
+        $("#audio2").hide();
+    }
+    if(audio3 != "") {
+        $("#audio3").attr("src", audio3);
+        $("#audio3").show();
+    } else {
+        $("#audio3").hide();
+    }
+    
+    
+    //rpta += '</ul>';
+    $(".concierto__info").html("");
+    //setAudio(audio1);   
 });
 
 $(".js-eventos").on("click", function() {

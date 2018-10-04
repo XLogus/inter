@@ -10,15 +10,7 @@ input
 -ms-user-select: auto !important;
 user-select: auto !important;
 }
-/*
-*
-{
--webkit-touch-callout: none;
--moz-touch-callout: none;
--ms-touch-callout: none;
-touch-callout: none;
-}
-*/
+
 *{
 -webkit-user-drag: none;
 -moz-user-drag: none;
@@ -28,11 +20,14 @@ user-drag: none;
 
 
 
+
+
 html, body {
     min-height : 100%;
 }
 body {
     background-color: #dcdbdb;
+    margin: 0px;
 }
 a {
     text-decoration: none;
@@ -152,7 +147,7 @@ a.eventos__link.active:before {
 .item {
     background-color: #000; text-align: center;
 }
-    .item a{ color:#FFF; font-size: 12px; font-weight: 400; }
+    .item a{ color:#FFF; font-size: 12px; font-weight: 400; display: block; height: 55px; width: 43px;  }
     .item a img{ display: block; height: 35px; width: 43px !important; margin: auto; }
 
 .owl-prev, .owl-next { width: 20px; height: 38px; position: absolute; overflow: hidden; top:10px; background-repeat: no-repeat; text-indent: -999px; }
@@ -190,8 +185,7 @@ ul.audios {
     padding: 0px;
     list-style: none;
 }
-    ul.audios li{
-        border-bottom: 2px solid #59b062;  
+    ul.audios li{        
         padding: 15px 0px;
         text-align: center;
     }
@@ -200,7 +194,7 @@ ul.audios {
         font-weight: 400;ç
         font-size: 18px;
     }
-audio { background-color: #59b062; width: 100%; }
+audio { background-color: #000; width: 100%; }
 
 a.js-play {
     display: inline-block;
@@ -317,4 +311,6 @@ progress#seek-obj { vertical-align: middle; width: 220px; }
 .align-center { text-align: center; }
 .align-left { text-align: left; }
 
-audio { display: none; }
+.concierto__mp3 { display: none; }
+.owl-item { min-width: 64px; }
+.owl-carousel { min-width: 360px; }
