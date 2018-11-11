@@ -9,13 +9,13 @@ $('.owl-carousel').owlCarousel({
     nav:true,
     responsive:{
         0:{
-            items:5
+            items:4
         },
         600:{
-            items:5
+            items:4
         },
         1000:{
-            items:5
+            items:4
         }
     }
 });
@@ -68,7 +68,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
         } else if(u.hash.search(re4) !== -1) {
             getAvisos2();
         } else if(u.hash.search(re5) !== -1) {
-            verificaLogin();
+            getProducciones2();
         } else {
             //e.preventDefault();
         } 
@@ -179,6 +179,21 @@ $(".js-acceder").on("click", function(event) {
         });
     }
 });
+
+function getProducciones2() {    
+    verificaLogin();
+        $.getJSON(serviceURL + 'producciones/mostrar/?user_id='+user_id).done(function(data) {
+            $('.eventos__wrap').html("");    
+            produs = data;
+            var rpta = "";
+            $.each(produs, function(index, pela) {
+                rpta += '<option value="'+pela.produccion_id+'">';
+                rpta += pela.titulo;
+                rpta += '</option>';                                                
+            });
+            $("#mensajeeve").html(rpta);
+        }); 
+}
 
 
 function getAvisos() {     
@@ -403,12 +418,13 @@ $(".js-eventos").on("click", function() {
 
 // Enviar Mensaje
 $(".js-enviarmsg").on("click", function() {
+    $evento = $('#mensajeeve').val();
     $mensaje = $('#mensajetxt').val();
     if($mensaje != "") {
-        $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&mensaje='+$mensaje).done(function(data) {            
+        $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&evento='+$evento+'&mensaje='+$mensaje).done(function(data) {            
             produs = data;
             //$(".msj__wrap").html("<br><h3>Su mensaje fue enviado</h3>");
-            $('.mensaje__rpta').html("Su mensaje fue enviado, en breve le contestaremos")
+            $('.mensaje__rpta').html("Su mensaje fue enviado, en breve le contestaremos a su email.")
             $('#mensajetxt').val('');
         });  
     } else {

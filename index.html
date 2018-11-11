@@ -233,9 +233,12 @@
         <div data-role="content">
           <div class="container">
                <div class="msj__wrap">               
-                   <p>Mensaje al administrador</p>
+                   <h3>Mensaje al administrador</h3>
                    <div class="mensaje__rpta"></div>
-                   <textarea name="mensajetxt" id="mensajetxt" cols="30" rows="20"></textarea>
+                   <p><strong>Evento:</strong></p>
+                   <select name="mensajeeve" id="mensajeeve" placeholder="Elija un evento"></select>
+                   <p><strong>Mensaje:</strong></p>
+                   <textarea name="mensajetxt" id="mensajetxt" cols="30" rows="20" placeholder="Escriba su mensaje"></textarea>
                    <p>
                        <button class="btn js-enviarmsg">ENVIAR</button>
                    </p>
@@ -257,7 +260,7 @@
                 <a href="#avisos" data-icon="mail">Inicio</a>            
             </li>
             <li data-filtertext="pasados">
-                <a href="#pasados" data-icon="mail">Avisos Pasados</a>            
+                <a href="#pasados" data-icon="mail">Avisos Leidos</a>            
             </li>
             <li data-filtertext="producciones">
                 <a href="#conciertos" data-icon="mail">Ver Producciones</a>            

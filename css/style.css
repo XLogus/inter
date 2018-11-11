@@ -147,12 +147,12 @@ a.eventos__link.active:before {
 .item {
     background-color: #000; text-align: center;
 }
-    .item a{ color:#FFF; font-size: 12px; font-weight: 400; display: block; height: 55px; width: 43px;  }
-    .item a img{ display: block; height: 35px; width: 43px !important; margin: auto; }
+    .item a{ color:#FFF; font-size: 12px; font-weight: 400; display: block; height: 55px; width: 43px; margin: auto;  }
+    .item a img{ display: block; height: 35px; width: 43px !important;  }
 
 .owl-prev, .owl-next { width: 20px; height: 38px; position: absolute; overflow: hidden; top:10px; background-repeat: no-repeat; text-indent: -999px; }
-.owl-prev { left: -20px; background-image: url(img/icon-prev.png); }
-.owl-next { right: -20px; background-image: url(img/icon-next.png); }
+.owl-prev { left: -18px; background-image: url(img/icon-prev.png); background-size: 15px; background-position: left center; }
+.owl-next { right: -18px; background-image: url(img/icon-next.png); background-size: 15px; background-position: left center; }
 
 /********************************
   Login
@@ -280,6 +280,7 @@ progress#seek-obj { vertical-align: middle; width: 220px; }
 }
 #mensajetxt { height: 120px !important; }
 .mensaje__rpta { color:#FF0000; font-weight: bold; }
+.ui-footer .container { max-width: 320px; }
 
 /******************************
   Botones
@@ -312,5 +313,5 @@ progress#seek-obj { vertical-align: middle; width: 220px; }
 .align-left { text-align: left; }
 
 .concierto__mp3 { display: none; }
-.owl-item { min-width: 64px; }
-.owl-carousel { min-width: 360px; }
+.owl-item { min-width: 55px; }
+.owl-carousel { min-width: 280px; margin: auto; }
