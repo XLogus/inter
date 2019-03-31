@@ -186,6 +186,7 @@ function getProducciones2() {
             $('.eventos__wrap').html("");    
             produs = data;
             var rpta = "";
+            rpta += '<option value="-">Elija un evento</option>';
             $.each(produs, function(index, pela) {
                 rpta += '<option value="'+pela.produccion_id+'">';
                 rpta += pela.titulo;
@@ -355,6 +356,11 @@ $(".js-audios").on("click", function() {
     audio1 = contenido.audio1;
     audio2 = contenido.audio2;
     audio3 = contenido.audio3;
+    audio4 = contenido.audio4;
+    audio5 = contenido.audio5;
+    audio6 = contenido.audio6;
+    audio7 = contenido.audio7;
+    audio8 = contenido.audio8;
     
     rpta = '<h3>'+contenido.titulo+'</h3>';
     /*
@@ -401,6 +407,43 @@ $(".js-audios").on("click", function() {
         $("#audio3").hide();
     }
     
+    if(audio4 != "") {
+        $("#audio4").attr("src", audio4);
+        $("#audio4").show();
+    } else {
+        $("#audio4").hide();
+    }
+    
+    if(audio5 != "") {
+        $("#audio5").attr("src", audio5);
+        $("#audio5").show();
+    } else {
+        $("#audio5").hide();
+    }
+    
+    if(audio6 != "") {
+        $("#audio6").attr("src", audio6);
+        $("#audio6").show();
+    } else {
+        $("#audio6").hide();
+    }
+    
+    if(audio7 != "") {
+        $("#audio7").attr("src", audio3);
+        $("#audio7").show();
+    } else {
+        $("#audio7").hide();
+    }
+    
+    if(audio8 != "") {
+        $("#audio8").attr("src", audio8);
+        $("#audio8").show();
+    } else {
+        $("#audio8").hide();
+    }
+    
+   
+    
     
     //rpta += '</ul>';
     $(".concierto__info").html("");
@@ -424,12 +467,21 @@ $(".js-enviarmsg").on("click", function() {
         $.getJSON(serviceURL + 'mensajes/enviar/?user_id='+user_id+'&evento='+$evento+'&mensaje='+$mensaje).done(function(data) {            
             produs = data;
             //$(".msj__wrap").html("<br><h3>Su mensaje fue enviado</h3>");
-            $('.mensaje__rpta').html("Su mensaje fue enviado, en breve le contestaremos a su email.")
+            $('.mensaje__rpta').html('Su mensaje fue enviado, en breve le contestaremos a su email. <a href="#" class="js-nuevomsj">Enviar nuevo mensaje</a>');
             $('#mensajetxt').val('');
+            $('.msj__wrap').hide();
         });  
     } else {
         $('.mensaje__rpta').html("Por favor ingrese un mensaje")
     }
+});
+
+
+// Mostrar formulario de mensaje
+
+$('.container').on("click", ".js-nuevomsj", function() {
+    $('.msj__wrap').show();   
+    $('.mensaje__rpta').html("");
 });
 
 // parse params in hash
